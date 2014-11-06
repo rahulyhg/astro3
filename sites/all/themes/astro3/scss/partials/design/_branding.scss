@@ -1,0 +1,10 @@
+@import 'compass';
+
+#zone-branding-wrapper {
+	background-color: $color-black;
+	.site-name a {
+		font-family: $tahoma;
+		color: $color-white;
+		font-size: 0.9em;
+	}
+}

@@ -1,0 +1,21 @@
+name = Natal
+description = A content type to store natal info (all fields)
+core = 7.x
+version = 7.x-1.5-dev
+configure = admin/config/natal/manage
+
+; 7.x-1.5-dev    (takes about 120 seconds to load)
+; Added <br> tags to horoscope
+; Added North Node delineation to horoscope
+
+; 7.x-1.4-dev    (takes about 120 seconds to load)
+; Added fields for natal aspect data
+; natal.install => variable_set('natal_sun_moon_conjunct','')...etc (CSSTO)
+; natal.install => $fields['natal_sun_moon_conjunct']...etc (CSSTO)
+; write to db if aspect exists "natal_mercury_pluto_opposite_value" = 4.3 (else NULL)
+
+; Daily_Daily
+; 1) daily_input_form.php line 3
+; 2) example_extract_html.php line 3
+; 3) views > astro_list > filter_criteria
+; 4) search API > listing display > fields

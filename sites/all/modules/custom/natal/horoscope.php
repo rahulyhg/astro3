@@ -1,0 +1,580 @@
+<?php
+require_once 'sites/all/modules/custom/natal/functions.php';
+
+$full_name = array();
+$query = "SELECT nid, title, uid FROM node WHERE type = 'natal'";
+$result = db_query($query);
+
+$table = 'field_data_natal_pub_pri';
+$field = 'natal_pub_pri_value';
+
+// Get the uid of the currently logged-in user
+global $user;
+// echo $user->uid;
+
+// if the uid=0 then the user is "anonymous"
+if ($user->uid == 0) {
+	if ($result) {
+			while ($row = $result->fetchAssoc()) {
+				$nid = $row['nid'];
+				$query = db_select($table, $field)
+				    ->fields($field)
+					->condition('entity_id', $nid,'=')
+				    ->execute()
+				    ->fetchAssoc();
+				$result_pp = $query[$field];
+				if ($result_pp == "Public") { // if the uid = 0 then access to "all"Public"" data
+				array_push($full_name, $row['title']);
+			}
+	  	}
+	}
+} else {
+	if ($result) {
+			while ($row = $result->fetchAssoc()) {
+				$nid = $row['nid'];
+				$query = db_select($table, $field)
+				    ->fields($field)
+					->condition('entity_id', $nid,'=')
+				    ->execute()
+				    ->fetchAssoc();
+				$result_pp = $query[$field];
+				if (($result_pp == "Public") || ($result_pp == "Private")) { // if the uid != 0 then access to all data
+				array_push($full_name, $row['title']);
+			}
+	  	}
+	}
+	
+}
+/* 
+// only displays individuals created by user with uid == 36
+if ($result) {
+  while ($row = $result->fetchAssoc()) {
+	if ($row['uid'] == 36) {
+		array_push($full_name, $row['title']);
+	}	
+  }
+}
+*/
+
+echo "<form id=\"daily_input_form\" method=\"post\" action=\"\">";
+echo "<select id=\"element_1\" name=\"full_name\">";
+echo "<option label=\"-select a name-\" value=\"\" selected=\"selected\"></option>";
+// full_name
+sort($full_name);
+for($i=0;$i<count($full_name);$i++){
+	$array[$i] = array($full_name[$i]);
+	echo "<option value=".$array[$i][0].">" . $array[$i][0] . "</option>";
+}
+
+echo "</select>";
+echo "<input id=\"saveForm\" class=\"button_text\" type=\"submit\" name=\"submit\" value=\"Submit\" />";
+echo "</form>";
+
+// Get the value for fullname and nid
+if(isset($_POST['submit']) && ($_POST['full_name'] != NULL)) {
+	$nid = get_nid($_POST['full_name']);
+	$full_name = $_POST['full_name'];
+	$name_first = 
+	
+	$query = db_select('field_data_natal_name_first', 'natal_name_first_value')
+	    ->fields('natal_name_first_value')
+		->condition('entity_id', $nid,'=')
+	    ->execute()
+	    ->fetchAssoc();
+	$name_first = $query['natal_name_first_value'];
+	
+	echo "Full Name: " . $full_name . "<br /><hr />";
+//	echo 'Node ID: ' . $nid . '<hr />';
+
+// retrieve the values for B = 'selected individual' from the database
+$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","nnode","asc","cusp02","cusp03","mc","cusp05","cusp06","asc","cusp02","cusp03","mc","cusp05","cusp06");
+for ($j=0; $j<count($p); $j++) {
+
+	$sdm = array('sign','degree','minute');
+	for ($i=0; $i<3; $i++) {
+		$table = 'field_data_natal_' . $p[$j] . '_' . $sdm[$i];
+		$field = 'natal_' . $p[$j] . '_' . $sdm[$i] . '_value';
+		$query = db_select($table, $field)
+		    ->fields($field)
+			->condition('entity_id', $nid,'=')
+		    ->execute()
+		    ->fetchAssoc();
+		$result = $query[$field];
+
+		$test_B = $j.$i;
+		switch ($test_B) {
+			case 00:
+				$sign_B_sun = $result;
+				break;
+			case 01:
+				$degree_B_sun = $result;
+				break;
+			case 02:
+				$minute_B_sun = $result;
+				break;
+			case 10:
+				$sign_B_moon = $result;
+				break;
+			case 11:
+				$degree_B_moon = $result;
+				break;
+			case 12:
+				$minute_B_moon = $result;
+				break;
+			case 20:
+				$sign_B_mercury = $result;
+				break;
+			case 21:
+				$degree_B_mercury = $result;
+				break;
+			case 22:
+				$minute_B_mercury = $result;
+				break;
+			case 30:
+				$sign_B_venus = $result;
+				break;
+			case 31:
+				$degree_B_venus = $result;
+				break;
+			case 32:
+				$minute_B_venus = $result;
+				break;
+			case 40:
+				$sign_B_mars = $result;
+				break;
+			case 41:
+				$degree_B_mars = $result;
+				break;
+			case 42:
+				$minute_B_mars = $result;
+				break;
+			case 50:
+				$sign_B_jupiter = $result;
+				break;
+			case 51:
+				$degree_B_jupiter = $result;
+				break;
+			case 52:
+				$minute_B_jupiter = $result;
+				break;
+			case 60:
+				$sign_B_saturn = $result;
+				break;
+			case 61:
+				$degree_B_saturn = $result;
+				break;
+			case 62:
+				$minute_B_saturn = $result;
+				break;
+			case 70:
+				$sign_B_uranus = $result;
+				break;
+			case 71:
+				$degree_B_uranus = $result;
+				break;
+			case 72:
+				$minute_B_uranus = $result;
+				break;
+			case 80:
+				$sign_B_neptune = $result;
+				break;
+			case 81:
+				$degree_B_neptune = $result;
+				break;
+			case 82:
+				$minute_B_neptune = $result;
+				break;
+			case 90:
+				$sign_B_pluto = $result;
+				break;
+			case 91:
+				$degree_B_pluto = $result;
+				break;
+			case 92:
+				$minute_B_pluto = $result;
+				break;
+			case 100:
+				$sign_B_nnode = $result;
+				break;
+			case 101:
+				$degree_B_nnode = $result;
+				break;
+			case 102:
+				$minute_B_nnode = $result;
+				break;
+			case 110:
+				$sign_B_asc = $result;
+				break;
+			case 111:
+				$degree_B_asc = $result;
+				break;
+			case 112:
+				$minute_B_asc = $result;
+				break;
+			case 120:
+				$sign_B_cusp02 = $result;
+				break;
+			case 121:
+				$degree_B_cusp02 = $result;
+				break;
+			case 122:
+				$minute_B_cusp02 = $result;
+				break;
+			case 130:
+				$sign_B_cusp03 = $result;
+				break;
+			case 131:
+				$degree_B_cusp03 = $result;
+				break;
+			case 132:
+				$minute_B_cusp03 = $result;
+				break;
+			case 140:
+				$sign_B_cusp04 = cusp_fix($result);
+				break;
+			case 141:
+				$degree_B_cusp04 = $result;
+				break;
+			case 142:
+				$minute_B_cusp04 = $result;
+				break;
+			case 150:
+				$sign_B_cusp05 = $result;
+				break;
+			case 151:
+				$degree_B_cusp05 = $result;
+				break;
+			case 152:
+				$minute_B_cusp05 = $result;
+				break;
+			case 160:
+				$sign_B_cusp06 = $result;
+				break;
+			case 161:
+				$degree_B_cusp06 = $result;
+				break;
+			case 162:
+				$minute_B_cusp06 = $result;
+				break;
+			case 170:
+				$sign_B_cusp07 = cusp_fix($result);
+				break;
+			case 171:
+				$degree_B_cusp07 = $result;
+				break;
+			case 172:
+				$minute_B_cusp07 = $result;
+				break;
+			case 180:
+				$sign_B_cusp08 = cusp_fix($result);
+				break;
+			case 181:
+				$degree_B_cusp08 = $result;
+				break;
+			case 182:
+				$minute_B_cusp08 = $result;
+				break;
+			case 190:
+				$sign_B_cusp09 = cusp_fix($result);
+				break;
+			case 191:
+				$degree_B_cusp09 = $result;
+				break;
+			case 192:
+				$minute_B_cusp09 = $result;
+				break;
+			case 200:
+				$sign_B_cusp10 = $result;
+				break;
+			case 201:
+				$degree_B_cusp10 = $result;
+				break;
+			case 202:
+				$minute_B_cusp10 = $result;
+				break;
+			case 210:
+				$sign_B_cusp11 = cusp_fix($result);
+				break;
+			case 211:
+				$degree_B_cusp11 = $result;
+				break;
+			case 212:
+				$minute_B_cusp11 = $result;
+				break;
+			case 220:
+				$sign_B_cusp12 = cusp_fix($result);
+				break;
+			case 221:
+				$degree_B_cusp12 = $result;
+				break;
+			case 222:
+				$minute_B_cusp12 = $result;
+				break;
+			default: 
+		}
+	}
+}
+
+// assign values (sign + degree + minute) to each planet and cusp
+$sunB = angle($sign_B_sun, $degree_B_sun, $minute_B_sun);
+$moonB = angle($sign_B_moon, $degree_B_moon, $minute_B_moon);
+$mercuryB = angle($sign_B_mercury, $degree_B_mercury, $minute_B_mercury);
+$venusB = angle($sign_B_venus, $degree_B_venus, $minute_B_venus);
+$marsB = angle($sign_B_mars, $degree_B_mars, $minute_B_mars);
+$jupiterB = angle($sign_B_jupiter, $degree_B_jupiter, $minute_B_jupiter);
+$saturnB = angle($sign_B_saturn, $degree_B_saturn, $minute_B_saturn);
+$uranusB = angle($sign_B_uranus, $degree_B_uranus, $minute_B_uranus);
+$neptuneB = angle($sign_B_neptune, $degree_B_neptune, $minute_B_neptune);
+$plutoB = angle($sign_B_pluto, $degree_B_pluto, $minute_B_pluto);
+$nnodeB = angle($sign_B_nnode, $degree_B_nnode, $minute_B_nnode);
+$cusp01B = angle($sign_B_asc, $degree_B_asc, $minute_B_asc);
+$cusp02B = angle($sign_B_cusp02, $degree_B_cusp02, $minute_B_cusp02);
+$cusp03B = angle($sign_B_cusp03, $degree_B_cusp03, $minute_B_cusp03);
+$cusp04B = angle($sign_B_cusp04, $degree_B_cusp04, $minute_B_cusp04);
+$cusp05B = angle($sign_B_cusp05, $degree_B_cusp05, $minute_B_cusp05);
+$cusp06B = angle($sign_B_cusp06, $degree_B_cusp06, $minute_B_cusp06);
+$cusp07B = angle($sign_B_cusp07, $degree_B_cusp07, $minute_B_cusp07);
+$cusp08B = angle($sign_B_cusp08, $degree_B_cusp08, $minute_B_cusp08);
+$cusp09B = angle($sign_B_cusp09, $degree_B_cusp09, $minute_B_cusp09);
+$cusp10B = angle($sign_B_cusp10, $degree_B_cusp10, $minute_B_cusp10);
+$cusp11B = angle($sign_B_cusp11, $degree_B_cusp11, $minute_B_cusp11);
+$cusp12B = angle($sign_B_cusp12, $degree_B_cusp12, $minute_B_cusp12);
+
+$b = array($sunB,$moonB,$mercuryB,$venusB,$marsB,$jupiterB,$saturnB,$uranusB,$neptuneB,$plutoB,$nnodeB,$cusp01B,$cusp02B,$cusp03B,$cusp04B,$cusp05B,$cusp06B,$cusp07B,$cusp08B,$cusp09B,$cusp10B,$cusp11B,$cusp12B);
+
+$q = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","nnode","cusp01 (ASC)","cusp02","cusp03","cusp04","cusp05","cusp06","cusp07","cusp08","cusp09","cusp10 (MC)","cusp11","cusp12");
+$c = array($sign_B_sun,$sign_B_moon,$sign_B_mercury,$sign_B_venus,$sign_B_mars,$sign_B_jupiter,$sign_B_saturn,$sign_B_uranus,$sign_B_neptune,$sign_B_pluto,$sign_B_nnode,$sign_B_asc,$sign_B_cusp02,$sign_B_cusp03,$sign_B_cusp04,$sign_B_cusp05,$sign_B_cusp06,$sign_B_cusp07,$sign_B_cusp08,$sign_B_cusp09,$sign_B_cusp10,$sign_B_cusp11,$sign_B_cusp12);
+$planet_sign_house = array();
+	for ($j=0; $j<11; $j++) {
+//		if ($j == 11) { echo '<hr />'; }
+		if (ucwords($q[$j]) == "Nnode") {
+			$x = 'North Node in ' . sign_long($c[$j]);
+		} else {
+			$x = ucwords($q[$j]) . ' in ' . sign_long($c[$j]);
+		}
+//q		echo $x . '<br />';
+		array_push($planet_sign_house,$x);
+//		echo $b[$j];  // displays degrees
+//		delineation($x);
+
+
+//$planet_house = array();
+//for ($k=0; $k<11; $k++) {
+	
+ // North Node in the 1st house
+		if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+			}
+		} elseif (($b[11] > $b[12]) && (($b[11] <= $b[$j]+360) && (($b[$j]+360) <= ($b[12]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+			}
+
+ // North Node in the 2nd house
+		} elseif (($b[12] < $b[13]) && (($b[12] <= $b[$j]) && ($b[$j] <= $b[13]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 2nd House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 2nd House';
+			}
+		} elseif (($b[12] > $b[13]) && (($b[12] <= $b[$j]+360) && (($b[$j]+360) <= ($b[13]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 2nd House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 2nd House';
+			}
+
+// North Node in the 3rd house
+		} elseif (($b[13] < $b[14]) && (($b[13] <= $b[$j]) && ($b[$j] <= $b[14]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 3rd House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 3rd House';
+			}
+		} elseif (($b[13] > $b[14]) && (($b[13] <= $b[$j]+360) && (($b[$j]+360) <= ($b[14]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 3rd House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 3rd House';
+			}
+
+// North Node in the 4th house
+		} elseif (($b[14] < $b[15]) && (($b[14] <= $b[$j]) && ($b[$j] <= $b[15]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 4th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 4th House';
+			}
+		} elseif (($b[14] > $b[15]) && (($b[14] <= $b[$j]+360) && (($b[$j]+360) <= ($b[15]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 4th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 4th House';
+			}
+
+// North Node in the 5th house
+		} elseif (($b[15] < $b[16]) && (($b[15] <= $b[$j]) && ($b[$j] <= $b[16]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 5th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 5th House';
+			}
+		} elseif (($b[15] > $b[16]) && (($b[15] <= $b[$j]+360) && (($b[$j]+360) <= ($b[16]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 5th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 5th House';
+			}
+
+// North Node in the 6th house
+		} elseif (($b[16] < $b[17]) && (($b[16] <= $b[$j]) && ($b[$j] <= $b[17]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 6th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 6th House';
+			}
+		} elseif (($b[16] > $b[17]) && (($b[16] <= $b[$j]+360) && (($b[$j]+360) <= ($b[17]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 6th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 6th House';
+			}
+
+// North Node in the 7th house
+		} elseif (($b[17] < $b[18]) && (($b[17] <= $b[$j]) && ($b[$j] <= $b[18]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 7th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 7th House';
+			}
+		} elseif (($b[17] > $b[18]) && (($b[17] <= $b[$j]+360) && (($b[$j]+360) <= ($b[18]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 7th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 7th House';
+			}
+
+// North Node in the 8th house
+		} elseif (($b[18] < $b[19]) && (($b[18] <= $b[$j]) && ($b[$j] <= $b[19]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 8th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 8th House';
+			}
+		} elseif (($b[18] > $b[19]) && (($b[18] <= $b[$j]+360) && (($b[$j]+360) <= ($b[19]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 8th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 8th House';
+			}
+
+// North Node in the 9th house
+		} elseif (($b[19] < $b[20]) && (($b[19] <= $b[$j]+360) && ($b[$j] <= $b[20]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 9th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 9th House';
+			}
+		} elseif (($b[19] > $b[20]) && (($b[19] <= $b[$j]+360) && (($b[$j]+360) <= ($b[20]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 9th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 9th House';
+			}
+
+// North Node in the 10th house
+		} elseif (($b[20] < $b[21]) && (($b[20] <= $b[$j]) && ($b[$j] <= $b[21]))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 10th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 10th House';
+			}
+		} elseif (($b[20] > $b[21]) && (($b[20] <= $b[$j]+360) && (($b[$j]+360) <= ($b[21]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 10th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 10th House';
+			}
+
+// North Node in the 11th house
+		} elseif (($b[21] < $b[22]) && (($b[21] <= $b[$j]) && ($b[$j] <= $b[22]))) { 
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 11th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 11th House';
+			}
+		} elseif (($b[21] > $b[22]) && (($b[21] <= $b[$j]+360) && (($b[$j]+360) <= ($b[22]+360)))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 11th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 11th House';
+			}
+
+// North Node in the 12th house
+		} else {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 12th House';
+			} else {
+				$return = ucwords($q[$j]) . ' in the 12th House';
+			}
+		}
+
+	array_push($planet_sign_house,$return);
+
+//	$planet = $q[$k];
+//function house($) {
+	switch ($j) {
+		case 0:
+			$house_sun = $return;
+			break;
+		case 1:
+			$house_moon = $return;
+			break;
+		case 2:
+			$house_mercury = $return;
+			break;
+		case 3:
+			$house_venus = $return;
+			break;
+		case 4:
+			$house_mars = $return;
+			break;
+		case 5:
+			$house_jupiter = $return;
+			break;
+		case 6:
+			$house_saturn = $return;
+			break;
+		case 7:
+			$house_uranus = $return;
+			break;
+		case 8:
+			$house_neptune = $return;
+			break;
+		case 9:
+			$house_pluto = $return;
+			break;
+		case 10:
+			$house_nnode = $return;
+			break;
+	}
+}
+/*
+echo '<br /><pre>';
+print_r($planet_sign_house);
+//print_r($planet_sign);
+echo '</pre><br />';
+*/
+	for ($i=0; $i<22; $i++) {
+		delineation($planet_sign_house[$i]);
+		if ($i % 2 != 0) {
+			echo "<br />";
+		}
+	}
+}
+?>

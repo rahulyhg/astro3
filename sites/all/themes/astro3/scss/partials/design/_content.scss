@@ -1,0 +1,91 @@
+////////////////////////////////////////
+// Front page
+////////////////////////////////////////
+#zone-content-wrapper {
+	margin-top: 1.5em;	
+}
+
+#block-system-navigation li {
+	font-family: $verdana;
+	a {
+		color: $color-link;
+		text-decoration: none;
+		font-size: 1.10em;
+	} 
+}
+
+#block-system-navigation h2 {
+	font-family: $verdana;
+	color: $color-active;
+	font-size: 1.50em;
+}
+
+#block-views-slider-block h2 {
+	font-family: $verdana;
+	color: $color-active;
+	font-size: 1.50em;
+	text-decoration: none;
+	padding-bottom: 0.75em;}
+
+.node-title a {
+	font-family: $verdana;
+	color: $color-active;
+	text-decoration: none;
+	font-size: 0.75em;
+}
+
+#region-content.grid-6 {
+	border-radius: 50px;
+}
+
+#section-content {
+	padding-top: 1.0em;
+}
+
+h1#page-title.title {
+	font-family: $verdana;
+	color: $color-active;
+	text-decoration: none;
+	font-size: 1.75em;
+}
+
+h2.block-title {
+	font-family: $verdana;
+	color: $color-active;
+	text-decoration: none;
+	font-size: 1.5em;
+}
+
+#node-article-1281 > div:nth-child(3) > nav:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) {
+	display: none;
+}
+
+////////////////////////////////////////
+// Sidebar First
+////////////////////////////////////////
+.block-facetapi {
+	background-color: #FFFFFF;
+	margin-bottom: 0.5em;
+	border-style: solid;
+	border-width: 2.0px;
+	border-color: #999999;
+	padding: 0.5em;
+	border-radius: 5.0px;
+}
+
+#region-sidebar-first h2.block-title {
+	font-size: 1.25em;
+}
+
+.class-1 {
+	font: 0.75em, sans-serif;
+	/* Field display */
+	.field .field-label {
+		color: blue;
+	  font-weight: normal;
+	}
+	img {
+		float: left;
+	}
+}
+
