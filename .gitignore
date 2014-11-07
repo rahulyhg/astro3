@@ -2,9 +2,12 @@
 sites/*/*settings*.php
 
 # Ignore paths that contain generated content.
+<<<<<<< HEAD
 cache/
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 50702eb66b82b605a2c352712deedf10beaf8e5f
 files/
 sites/*/files
 sites/*/private
@@ -24,11 +27,14 @@ sites/all/themes/README.txt
 
 # Ignore everything but the "sites" folder ( for non core developer )
 <<<<<<< HEAD
+<<<<<<< HEAD
 */.DS_Store
 .DS_Store
 __MACOSX/
 htaccess.txt
 =======
+=======
+>>>>>>> 50702eb66b82b605a2c352712deedf10beaf8e5f
 .htaccess
 web.config
 authorize.php
@@ -42,4 +48,8 @@ xmlrpc.php
 /modules
 /profiles
 /scripts
+<<<<<<< HEAD
 /themes
+=======
+/themes
+>>>>>>> 50702eb66b82b605a2c352712deedf10beaf8e5f
