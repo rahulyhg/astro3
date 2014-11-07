@@ -1,6 +1,6 @@
 <?php
 require 'sites/all/modules/custom/natal/functions.php';
-$daily_id = 1287;
+$daily_id = 1758;
 
 $full_name = array();
 $query = "SELECT nid, title FROM node WHERE type = 'natal'";
@@ -13,40 +13,7 @@ $field = 'natal_pub_pri_value';
 global $user;
 // echo $user->uid;
 
-// if the uid=0 then the user is "anonymous"
-if ($user->uid == 0) {
-	if ($result) {
-			while ($row = $result->fetchAssoc()) {
-				$nid = $row['nid'];
-				$query = db_select($table, $field)
-				    ->fields($field)
-					->condition('entity_id', $nid,'=')
-				    ->execute()
-				    ->fetchAssoc();
-				$result_pp = $query[$field];
-				if ($result_pp == "Public") { // if the uid = 0 then access to "all"Public"" data
-				array_push($full_name, $row['title']);
-			}
-	  	}
-	}
-} else {
-	if ($result) {
-			while ($row = $result->fetchAssoc()) {
-				$nid = $row['nid'];
-				$query = db_select($table, $field)
-				    ->fields($field)
-					->condition('entity_id', $nid,'=')
-				    ->execute()
-				    ->fetchAssoc();
-				$result_pp = $query[$field];
-				if (($result_pp == "Public") || ($result_pp == "Private")) { // if the uid != 0 then access to all data
-				array_push($full_name, $row['title']);
-			}
-	  	}
-	}
-	
-}
-
+include "permission.inc";
 
 echo "<form id=\"daily_input_form\" method=\"post\" action=\"\">";
 echo "<select id=\"element_1\" name=\"full_name\">";
@@ -65,9 +32,9 @@ echo "</select>";
 echo "<select id=\"element_2\" name=\"orb\">";
 echo "<option label=\"-select an orb -\" value=\"\"></option>";
 echo "<option value=\"0.33\" >0 degrees 20 minutes</option>";
-echo "<option value=\"0.5\" selected=\"selected\">0 degrees 30 minutes</option>";
+echo "<option value=\"0.5\" >0 degrees 30 minutes</option>";
 echo "<option value=\"1.0\" >1 degree 0 minutes</option>";
-echo "<option value=\"2\" >2 degrees 0 minutes</option>";
+echo "<option value=\"2\" selected=\"selected\" >2 degrees 0 minutes</option>";
 echo "</select>";
 
 echo "<input id=\"saveForm\" class=\"button_text\" type=\"submit\" name=\"submit\" value=\"Submit\" />";
@@ -86,8 +53,15 @@ if(isset($_POST['submit']) && ($_POST['full_name'] != NULL) && ($_POST['orb'] !=
 	    ->execute()
 	    ->fetchAssoc();
 	$name_first = $query['natal_name_first_value'];
+
+	$query2 = db_select('field_data_natal_name_last', 'natal_name_last_value')
+	    ->fields('natal_name_last_value')
+		->condition('entity_id', $nid,'=')
+	    ->execute()
+	    ->fetchAssoc();
+	$name_last = $query2['natal_name_last_value'];
 	
-	echo "Full Name: " . $full_name . "<br />";
+	echo "Click name for natal information: <a href=\"natal/" . $full_name . "\">" . $name_first . " " . $name_last . "<a/><br />";
 	echo "Orb: " . $orb . " degrees<br />";
 //	echo 'Node ID: ' . $nid . '<hr />';
 
@@ -369,6 +343,10 @@ $b = array($sunB,$moonB,$mercuryB,$venusB,$marsB,$jupiterB,$saturnB,$uranusB,$ne
 			$aspect = ab($a[$i], $b[$j]);
 			if ($aspect != NULL) {
 				$angle = ' (angle: ' . round(abs(($a[$i] - $b[$j])),1) . '&#176;)';
+				$glyph1 = '<img src="sites/default/files/glyphs/' . $p[$i] . '.jpg" style="width:41px;height:54px" >';
+				$glyph2 = '<img src="sites/default/files/glyphs/' . $aspect . '.jpg" style="width:41px;height:54px" >';
+				$glyph3 = '<img src="sites/default/files/glyphs/' . $p[$j] . '.jpg" style="width:41px;height:54px" ><br />';
+				echo $glyph1 . " " . $glyph2 . " " . $glyph3;
 				$title = 'Transiting ' . ucwords($p[$i]) . ' ' . $aspect . ' natal ' . ucwords($p[$j]) ;
 				echo '<span style="color:rgb(57,51,127);font-size:20px;font-weight:bold">' . $title . '</span>' . $angle . '<br />';
 				$condition1 = $p[$i] . '_' . $p[$j] . '_' . $aspect;

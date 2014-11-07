@@ -1,8 +1,8 @@
 <?php
 global $ss;
-$daily_id = 1287;
+$daily_id = 1758;
 
-// set variable for daily_daily (nid = 1287)
+// set variable for daily_daily (nid = $daily_id)
 $nid = $daily_id;
 
 require_once 'simple_html_dom.php';
@@ -75,6 +75,8 @@ for ($i=0; $i<$n; $i++) {
 }	
 $output .= "<hr />";
 
+$output .= "<table class=\"aspects\">";
+
 // capture sign, degree and minute
 $s = 11;
 for ($i=0; $i<$s; $i++) {	
@@ -92,13 +94,24 @@ for ($i=0; $i<$s; $i++) {
 	if ($sign == "PSC") { $sign = "PIS"; }	
 */
 	
-$output .= "<table class=\"aspects\">
+/*$output .= "<table class=\"aspects\">
 		<tr>
 			<td width=\"12%\"><img src=\"sites/default/files/glyphs/".$p[$i].".jpg\" height=\"25\" width=\"25\"></td>
 			<td class=\"word1\" width=\"38%\">".$P[$i]."</td>
 			<td width=\"12%\"><img src=\"sites/default/files/glyphs/".substr(strtolower($title_sign[$i]), 0, 3).".jpg\" height=\"25\" width=\"25\"></td>
 			<td class=\"word2\" width=\"38%\">".$classes[3*$i+1]."&#176;".$classes[3*$i+2]."</td>
-		</tr></table>";
+		</tr></table>";*/
+
+$output .=		"<tr>
+				<td width=\"24%\">
+					<img src=\"sites/default/files/glyphs/".$p[$i].".jpg\" height=\"25\" width=\"19\"> in 
+					<img src=\"sites/default/files/glyphs/".substr(strtolower($title_sign[$i]), 0, 3).".jpg\" height=\"25\" width=\"19\"></td>
+				<td class=\"word1\" width=\"40%\"><a href=\"" . $p[$i] . "-" . strtolower($title_sign[$i]) . "\">" . $p[$i] . " in " . strtolower($title_sign[$i]) . "</a></td>
+				<td class=\"word1\" width=\"36%\">".$classes[3*$i+1]."&#176;".$classes[3*$i+2]."</td>
+			</tr>";
+}
+$output .=	"</table>";
+
 
 // update SUN in MySQL tables
 $update = db_update('field_data_natal_sun_sign')
@@ -254,6 +267,6 @@ $update = db_update('field_data_natal_nnode_minute')
 	->condition('entity_id', $nid,'=')
     ->execute();
 
-}
+
 return $output;
 ?>

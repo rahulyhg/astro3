@@ -57,14 +57,14 @@ $output .= $p[$i] . " " . $P[$i] . "<br />" . $sign . " " . $degree . "&#176;" .
 echo "<pre>";
 $query = db_select('field_data_natal_moon_sign', 'natal_moon_sign_value')
     ->fields('natal_moon_sign_value')
-	->condition('entity_id', 1287,'=')
+	->condition('entity_id', 1758,'=')
     ->execute()
     ->fetchAssoc();
 $ss = $query['natal_moon_sign_value'];
 echo "The natal Moon sign is: " . $ss;
 echo "</pre>";
 
-// set variable for daily_daily (nid = 1287)
+// set variable for daily_daily (nid = 1758)
 $nid = 1287;
 
 $test = $i;

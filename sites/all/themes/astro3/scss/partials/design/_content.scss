@@ -43,6 +43,7 @@
 }
 
 h1#page-title.title {
+	clear: both;
 	font-family: $verdana;
 	color: $color-active;
 	text-decoration: none;
@@ -63,7 +64,8 @@ h2.block-title {
 ////////////////////////////////////////
 // Sidebar First
 ////////////////////////////////////////
-.block-facetapi {
+.block-facetapi,
+.sidebar-orb {
 	background-color: #FFFFFF;
 	margin-bottom: 0.5em;
 	border-style: solid;
@@ -71,6 +73,9 @@ h2.block-title {
 	border-color: #999999;
 	padding: 0.5em;
 	border-radius: 5.0px;
+	font-size: 0.75em;
+	max-width: 200px;
+	float: left;
 }
 
 #region-sidebar-first h2.block-title {
@@ -79,13 +84,82 @@ h2.block-title {
 
 .class-1 {
 	font: 0.75em, sans-serif;
+	font-weight: normal;
 	/* Field display */
-	.field .field-label {
-		color: blue;
-	  font-weight: normal;
+	.field .field-label,
+	.group-left {
+		font-weight: normal;
 	}
 	img {
 		float: left;
 	}
 }
 
+.field-label-inline .field-label {
+	color: $color-darkblue;
+	font-weight: normal;
+}
+
+.field-label-inline .field-items {
+	color: $color-black;
+	font-weight: bold;
+}
+
+
+.fullname {
+	color: blue;
+	font-size: 1.25em;
+	a:link {
+	    text-decoration: none;
+	}
+
+	a:visited {
+	    text-decoration: none;
+	}
+
+	a:hover {
+	    text-decoration: underline;
+		color: red;
+	}
+
+	a:active {
+	    text-decoration: none;
+	}
+}
+
+// astro-list: public and private
+.tableview {
+	font-size: 0.78em;
+}
+
+.group-footer {
+	padding-top: 2.0em;
+}
+
+table.aspects {
+	margin-bottom: 2.0em;
+}
+// planet-sign-house-description (e.g., astro3/sun-aries)
+.planet-placement-format {
+	float: left; 
+	margin-right: 10px; 
+	border-width: 0px; 
+	border-style: none;
+	.align-middle {
+		display:inline-block;
+		line-height:50px;
+		vertical-align:top;
+	}
+}
+
+.moon-color table {
+	 width: 426px;
+}
+.moon-color p {
+	font-size: 0.85em;
+	margin-top: -20px;
+}
+.moon-color td {
+	border: 2px solid $color-darkgray;
+	text-align:center;
+}

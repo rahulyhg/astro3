@@ -78,6 +78,7 @@ $field1 = 'nid';
 $query = db_select($table1, $field1)
     ->fields($field1)
 	->condition('title', $condition1,'=')
+	->condition('type','transit', '=')
     ->execute()
     ->fetchAssoc();
 $result = $query[$field1];
@@ -108,7 +109,8 @@ echo '<span style="color:rgb(0,102,229);font-size:18px;font-weight:bold">' . $de
 }
 
 // NATAL DELINEATION: displays data from 'node' and 'field_data_body' tables
-function delineation($x) {
+function delineation($x, $title) {
+include "sites/all/modules/custom/natal/set_horoscope_glyph_image.inc"; 
 $table1 = 'node';
 $field1 = 'nid';
 $query = db_select($table1, $field1)
@@ -188,6 +190,51 @@ function sign_long($s){
 	}
 }
 
+// "fixes house label, e.g. 3rd-->03
+function fix_house($fh){
+	switch ($fh) {
+		case '1st':
+			return '01';
+			break;
+		case '2nd':
+			return '02';
+			break;
+		case "3rd":
+			return "03";
+			break;
+		case "4th":
+			return "04";
+			break;
+		case "5th":
+			return "05";
+			break;
+		case "6th":
+			return "06";
+			break;
+		case "7th":
+			return "07";
+			break;
+		case "8th":
+			return "08";
+			break;
+		case '9th':
+			return '09';
+			break;
+		case "10th":
+			return "10";
+			break;
+		case "11th":
+			return "11";
+			break;
+		case "12th":
+			return "12"; 
+			break;
+		default:
+			return "?????"; 
+			break;
+	}
+}
+
 // cusp sign fix
 function cusp_fix($cf){
 	switch ($cf) {
@@ -231,6 +278,115 @@ function cusp_fix($cf){
 			echo "?????"; 
 			break;
 	}
+}
+
+/////////////////////////////////////////////////
+// identifies aspects in a chart
+/////////////////////////////////////////////////
+// CONJUNCT
+function planet1_planet2_conjunct($angle1, $angle2, $planet1, $planet2) {
+	$aspect_orb = 8.0;
+	$result = array();
+	
+	$x = abs($angle1 - $angle2);
+	if ((($x) > (0-$aspect_orb)) && (($x) < (0+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_conjunct";
+		$result2 = number_format(abs(($x)),1);
+		$result = array($result1,$result2);
+	} elseif ((($x) > (360-$aspect_orb)) && (($x) < (360+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_conjunct";
+		$result2 = number_format(abs((360-$x)),1);
+		$result = array($result1,$result2);
+	} else {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_conjunct";
+		$result2 = NULL;
+		$result = array($result1,$result2);
+	}
+		return $result;
+}
+
+// SEXTILE
+function planet1_planet2_sextile($angle1, $angle2, $planet1, $planet2) {
+	$aspect_orb = 8.0;
+	$result = array();
+	
+	$x = abs($angle1 - $angle2);
+	if ((($x) > (60-$aspect_orb)) && (($x) < (60+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_sextile";
+		$result2 = number_format(abs(($x)-60),1);
+		$result = array($result1,$result2);
+	} elseif ((($x) > (300-$aspect_orb)) && (($x) < (300+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_sextile";
+		$result2 = number_format(abs(($x-180)-120),1);
+		$result = array($result1,$result2);
+	} else {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_sextile";
+		$result2 = NULL;
+		$result = array($result1,$result2);
+	}
+		return $result;
+}
+
+// SQUARE
+function planet1_planet2_square($angle1, $angle2, $planet1, $planet2) {
+	$aspect_orb = 8.0;
+	$result = array();
+	
+	$x = abs($angle1 - $angle2);
+	if ((($x) > (90-$aspect_orb)) && (($x) < (90+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_square";
+		$result2 = number_format(abs(($x)-90),1);
+		$result = array($result1,$result2);
+	} elseif ((($x) > (270-$aspect_orb)) && (($x) < (270+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_square";
+		$result2 = number_format(abs(($x-180)-90),1);
+		$result = array($result1,$result2);
+	} else {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_square";
+		$result2 = NULL;
+		$result = array($result1,$result2);
+	}
+		return $result;
+}
+
+// TRINE
+function planet1_planet2_trine($angle1, $angle2, $planet1, $planet2) {
+	$aspect_orb = 8.0;
+	$result = array();
+	
+	$x = abs($angle1 - $angle2);
+	if ((($x) > (120-$aspect_orb)) && (($x) < (120+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_trine";
+		$result2 = number_format(abs(($x)-120),1);
+		$result = array($result1,$result2);
+	} elseif ((($x) > (240-$aspect_orb)) && (($x) < (240+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_trine";
+		$result2 = number_format(abs(($x-240)),1);
+		$result = array($result1,$result2);
+	} else {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_trine";
+		$result2 = NULL;
+		$result = array($result1,$result2);
+	}
+		return $result;
+}
+
+// OPPOSITE
+function planet1_planet2_opposite($angle1, $angle2, $planet1, $planet2) {
+	$aspect_orb = 8.0;
+	$result = array();
+	
+	$x = abs($angle1 - $angle2);
+	if ((($x) > (180-$aspect_orb)) && (($x) < (180+$aspect_orb))) {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_opposite";
+		$result2 = number_format(abs(($x)-180),1);
+		$result = array($result1,$result2);
+	} else {
+		$result1 = strtolower($planet1) . "_" . strtolower($planet2) . "_opposite";
+		$result2 = NULL;
+		$result = array($result1,$result2);
+	}
+		return $result;
 }
 
 

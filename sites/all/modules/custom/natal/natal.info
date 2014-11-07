@@ -1,8 +1,33 @@
 name = Natal
 description = A content type to store natal info (all fields)
 core = 7.x
-version = 7.x-1.5-dev
+version = 7.x-1.11-dev
 configure = admin/config/natal/manage
+package = Astrology
+
+; 7.x-1.11-dev    (takes about 90 seconds to load)
+; Added fields for natal aspect data (at bottom of horoscope.php)
+
+; 7.x-1.10-dev    (takes about 90 seconds to load)
+; Add; Create fields for OPPOSITE aspects (natal.install)
+; Add: variable_del for OPPOSITE aspects (natal.install)
+
+; 7.x-1.9-dev    (takes about 67 seconds to load)
+; Add; Create fields for TRINE aspects (natal.install)
+; Add: variable_del for TRINE aspects (natal.install)
+; Modified: "max_execution_time" from 30 to 60 seconds (etc/php.ini)
+
+; 7.x-1.8-dev    (takes about 53 seconds to load)
+; Add; Create fields for SQUARE aspects (natal.install)
+; Add: variable_del for SQUARE aspects (natal.install)
+
+; 7.x-1.7-dev    (takes about 38 seconds to load)
+; Add; Create fields for SEXTILE aspects (natal.install)
+; Add: variable_del for SEXTILE aspects (natal.install)
+
+; 7.x-1.6-dev    (takes about ___ seconds to load)
+; Create fields for CONJUNCT aspects (natal.install)
+; variable_del for CONJUNCT aspects (natal.install)
 
 ; 7.x-1.5-dev    (takes about 120 seconds to load)
 ; Added <br> tags to horoscope
@@ -19,3 +44,5 @@ configure = admin/config/natal/manage
 ; 2) example_extract_html.php line 3
 ; 3) views > astro_list > filter_criteria
 ; 4) search API > listing display > fields
+; 5) moon_color_html.php line 60
+; 6) 'Moon Color of the Day' block
