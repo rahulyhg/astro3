@@ -11,6 +11,7 @@ cache/
 files/
 sites/*/files
 sites/*/private
+sites/all/themes/astro3/.sass-cache/*/astro3-alpha-default-narrow.scssc
 
 # Ignore default text files
 robots.txt
