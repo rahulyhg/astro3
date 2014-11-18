@@ -103,11 +103,11 @@ for ($i=0; $i<$s; $i++) {
 		</tr></table>";*/
 
 $output .=		"<tr>
-				<td width=\"24%\">
-					<img src=\"sites/default/files/glyphs/".$p[$i].".jpg\" height=\"25\" width=\"19\"> in 
+				<td width=\"30%\">
+					<img src=\"sites/default/files/glyphs/".$p[$i].".jpg\" height=\"25\" width=\"19\">in
 					<img src=\"sites/default/files/glyphs/".substr(strtolower($title_sign[$i]), 0, 3).".jpg\" height=\"25\" width=\"19\"></td>
-				<td class=\"word1\" width=\"40%\"><a href=\"" . $p[$i] . "-" . strtolower($title_sign[$i]) . "\">" . $p[$i] . " in " . strtolower($title_sign[$i]) . "</a></td>
-				<td class=\"word1\" width=\"36%\">".$classes[3*$i+1]."&#176;".$classes[3*$i+2]."</td>
+				<td class=\"word1\" width=\"45%\"><a href=\"" . $p[$i] . "-" . strtolower($title_sign[$i]) . "\">" . $p[$i] . " in " . strtolower($title_sign[$i]) . "</a></td>
+				<td class=\"word1\" width=\"25%\">".$classes[3*$i+1]."&#176;".$classes[3*$i+2]."</td>
 			</tr>";
 }
 $output .=	"</table>";

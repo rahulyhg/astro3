@@ -49,7 +49,7 @@ if ($planet == "North") {
 
 echo "<p>";
 echo "<div class=\"planet-placement-format\">";
-echo "<img src=\"sites/default/files/glyphs/" . $planet . ".jpg\" alt=\"glyph of the {$planet}\" title=\"symbol for the {$planet}\">";
+echo "<img src=\"sites/default/files/glyphs/" . strtolower($planet) . ".jpg\" alt=\"glyph of the {$planet}\" title=\"symbol for the {$planet}\" height=\"54\" width=\"45\">";
 echo "<span class=\"align-middle\"> in </span>";
 echo "<img src=\"sites/default/files/glyphs/" . $house_sign . ".jpg\" alt=\"glyph of {$placement}\" title=\"symbol for {$placement}\" >";
 echo "</div>";
