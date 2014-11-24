@@ -47,14 +47,13 @@ h1#page-title.title {
 	font-family: $verdana;
 	color: $color-active;
 	text-decoration: none;
-	font-size: 1.75em;
+	font-size: 1.25em;
 }
 
 h2.block-title {
 	font-family: $verdana;
 	color: $color-active;
 	text-decoration: none;
-	font-size: 1.5em;
 }
 
 #node-article-1281 > div:nth-child(3) > nav:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) {
@@ -166,4 +165,11 @@ table.aspects {
 .moon-color td {
 	border: 2px solid $color-darkgray;
 	text-align:center;
+}
+
+////////////////////////////////////////
+// Sidebar Second
+////////////////////////////////////////
+h2.block-title {
+	font-size: 1.25em;
 }

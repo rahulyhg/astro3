@@ -541,12 +541,14 @@ $planet_sign_house = array();
 			break;
 	}
 }
-/*
+
+// Prints the array, e.g., [11] Saturn in Aquarius; [12] Saturn in the 3rd house
 echo '<br /><pre>';
 print_r($planet_sign_house);
+//$psh_array = $planet_sign_house;
 //print_r($planet_sign);
 echo '</pre><br />';
-*/
+
 	for ($i=0; $i<22; $i++) {
 		$title = $planet_sign_house[$i];  // e.g., "mercury_saturn_square"
 		delineation($planet_sign_house[$i], $title);
@@ -596,12 +598,37 @@ echo '</pre><br />';
 					'delta' => 0,
 				))
 		    ->execute();
-			if ($conjunct[1] != "") {
-				if ($conjunct[1] <= 2.0) {
+			if ($conjunct[1] != "") { // if the table entry is not NULL
+				$ab = explode("_", $conjunct[0]);  // $conjunct[0] ==> Venus Pluto
+				if (($ab[0] == "jupiter") || ($ab[1] == "jupiter")) {
+					$psh0 = explode(" ", $planet_sign_house[10]);
+					$psh1 = explode(" ", $planet_sign_house[11]);
+//					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
+					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4] . ", ";
+				}
+				if (($ab[0] == "uranus") || ($ab[1] == "uranus")) {
+					$psh0 = explode(" ", $planet_sign_house[14]);
+					$psh1 = explode(" ", $planet_sign_house[15]);					
+//					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
+					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4];
+				}
+
+//				echo "planet A: " . $ab[0] . ", planet B:" . $ab[1] . "<br />";
+				
+				if ($conjunct[1] <= 2.0) { // if the orb is <= 2.0 then color the text BLUE
 					echo "<span style=\"color:blue\"; >";
 					$aspect = $conjunct[0] . " &#177; " . $conjunct[1] ;
 					echo "<a href=aspect/" . $conjunct[0] . "> " . $conjunct[0] . " </a>&#177;" . $conjunct[1] . " degrees<br />";
 					echo "</span>";
+
+
+//	echo planet_A in house_A conjunct planet_B in house_B
+//	if Venus then echo planet_sign_house[6], planet_sign_house[7]  ==> Venus in Aries in the 3rd house
+//	if Pluto then echo planet_sign_house[17], planet_sign_house[18]  ==> Pluto in Aries in the 3rd house
+	
+//	Get a single value out of the database (Public or Private).	
+//	$pub_pri = db_query("SELECT natal_pub_pri_value FROM {field_data_natal_pub_pri} WHERE entity_id = $nid")->fetchField();
+
 				} else {
 					echo "<a href=aspect/" . $conjunct[0] . "> " . $conjunct[0] . " </a>&#177;" . $conjunct[1] . " degrees<br />";
 				}

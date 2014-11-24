@@ -1,5 +1,7 @@
 <?php
-
+/////////////////////////////////////////////////
+// CREATES ALL TABLES IN THE DATABASE
+/////////////////////////////////////////////////
 // Create field $instances for ALL CONJUNCTIONS
 	$instances['natal_sun_moon_conjunct'] = array(
 		'field_name'  => 'natal_sun_moon_conjunct',

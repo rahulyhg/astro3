@@ -80,7 +80,7 @@ h1#page-title.title {
   font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
   color: #e09a49;
   text-decoration: none;
-  font-size: 1.75em;
+  font-size: 1.25em;
 }
 
 /* line 53, ../scss/partials/design/_content.scss */
@@ -88,15 +88,14 @@ h2.block-title {
   font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
   color: #e09a49;
   text-decoration: none;
-  font-size: 1.5em;
 }
 
-/* line 60, ../scss/partials/design/_content.scss */
+/* line 59, ../scss/partials/design/_content.scss */
 #node-article-1281 > div:nth-child(3) > nav:nth-child(1) > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) {
   display: none;
 }
 
-/* line 68, ../scss/partials/design/_content.scss */
+/* line 67, ../scss/partials/design/_content.scss */
 .block-facetapi,
 .sidebar-orb {
   background-color: #FFFFFF;
@@ -111,111 +110,116 @@ h2.block-title {
   float: left;
 }
 
-/* line 81, ../scss/partials/design/_content.scss */
+/* line 80, ../scss/partials/design/_content.scss */
 #region-sidebar-first {
   padding-bottom: 1.5em;
 }
 
-/* line 85, ../scss/partials/design/_content.scss */
+/* line 84, ../scss/partials/design/_content.scss */
 #region-sidebar-first h2.block-title {
   font-size: 1.25em;
 }
 
-/* line 89, ../scss/partials/design/_content.scss */
+/* line 88, ../scss/partials/design/_content.scss */
 .class-1 {
   font: 0.75em, sans-serif;
   font-weight: normal;
   /* Field display */
 }
-/* line 94, ../scss/partials/design/_content.scss */
+/* line 93, ../scss/partials/design/_content.scss */
 .class-1 .field .field-label,
 .class-1 .group-left {
   font-weight: normal;
 }
-/* line 97, ../scss/partials/design/_content.scss */
+/* line 96, ../scss/partials/design/_content.scss */
 .class-1 img {
   float: left;
 }
 
-/* line 102, ../scss/partials/design/_content.scss */
+/* line 101, ../scss/partials/design/_content.scss */
 .field-label-inline .field-label {
   color: #003366;
   font-weight: normal;
 }
 
-/* line 107, ../scss/partials/design/_content.scss */
+/* line 106, ../scss/partials/design/_content.scss */
 .field-label-inline .field-items {
   color: #3d3d3d;
   font-weight: bold;
 }
 
-/* line 113, ../scss/partials/design/_content.scss */
+/* line 112, ../scss/partials/design/_content.scss */
 .fullname {
   color: blue;
   font-size: 1.25em;
 }
-/* line 116, ../scss/partials/design/_content.scss */
+/* line 115, ../scss/partials/design/_content.scss */
 .fullname a:link {
   text-decoration: none;
 }
-/* line 120, ../scss/partials/design/_content.scss */
+/* line 119, ../scss/partials/design/_content.scss */
 .fullname a:visited {
   text-decoration: none;
 }
-/* line 124, ../scss/partials/design/_content.scss */
+/* line 123, ../scss/partials/design/_content.scss */
 .fullname a:hover {
   text-decoration: underline;
   color: red;
 }
-/* line 129, ../scss/partials/design/_content.scss */
+/* line 128, ../scss/partials/design/_content.scss */
 .fullname a:active {
   text-decoration: none;
 }
 
-/* line 135, ../scss/partials/design/_content.scss */
+/* line 134, ../scss/partials/design/_content.scss */
 .tableview {
   font-size: 0.78em;
 }
 
-/* line 139, ../scss/partials/design/_content.scss */
+/* line 138, ../scss/partials/design/_content.scss */
 .group-footer {
   padding-top: 2.0em;
 }
 
-/* line 143, ../scss/partials/design/_content.scss */
+/* line 142, ../scss/partials/design/_content.scss */
 table.aspects {
   margin-bottom: 2.0em;
 }
 
-/* line 147, ../scss/partials/design/_content.scss */
+/* line 146, ../scss/partials/design/_content.scss */
 .planet-placement-format {
   float: left;
   margin-right: 10px;
   border-width: 0px;
   border-style: none;
 }
-/* line 152, ../scss/partials/design/_content.scss */
+/* line 151, ../scss/partials/design/_content.scss */
 .planet-placement-format .align-middle {
   display: inline-block;
   line-height: 50px;
   vertical-align: top;
 }
 
-/* line 159, ../scss/partials/design/_content.scss */
+/* line 158, ../scss/partials/design/_content.scss */
 .moon-color table {
   width: 426px;
 }
 
-/* line 162, ../scss/partials/design/_content.scss */
+/* line 161, ../scss/partials/design/_content.scss */
 .moon-color p {
   font-size: 0.85em;
   margin-top: -20px;
 }
 
-/* line 166, ../scss/partials/design/_content.scss */
+/* line 165, ../scss/partials/design/_content.scss */
 .moon-color td {
   border: 2px solid #c9c9c9;
   text-align: center;
+}
+
+/* line 173, ../scss/partials/design/_content.scss */
+h2.block-title {
+  font-size: 1.25em;
 }
 
 /* line 1, ../scss/partials/design/_footer.scss */

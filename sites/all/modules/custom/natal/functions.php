@@ -389,5 +389,4 @@ function planet1_planet2_opposite($angle1, $angle2, $planet1, $planet2) {
 		return $result;
 }
 
-
 ?>
