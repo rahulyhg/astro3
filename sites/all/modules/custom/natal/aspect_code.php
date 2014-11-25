@@ -13,15 +13,21 @@ echo "<b>Other people with this aspect include:</b><br /><br />";
 
 $result = db_query("SELECT entity_id, $field FROM {$table}")->fetchAll(PDO::FETCH_ASSOC);
 
+// select all the entries in the table that are not NULL, i.e., a major aspect exists
 foreach ($result as $record) {
 	if($record[$field] != NULL) {
-		$result2 = db_query("SELECT nid, title, type FROM {node}")->fetchAll(PDO::FETCH_ASSOC);
+		$result2 = db_query("SELECT nid, title, type FROM {node}")->fetchAll(PDO::FETCH_ASSOC);		
 		foreach ($result2 as $record2) {
 			if(($record2['type'] == 'natal') && ($record2['nid'] == $record['entity_id'])) {
 				$full = explode('_',$record2['title']);
 				$first = ucfirst($full[1]);
 				$last = ucfirst($full[0]);
 				$nid = $record2['nid'];
+				
+				$t3 = explode("_", $table);
+				$table3 = "field_data_natal_" . $t3[3]. "_house";  // e.g., "field_data_natal_mercury_house"
+				$column3 = "natal_" . $t3[3]. "_house_value";  // e.g., "natal_mercury_house_value" 
+				$result3 = db_query("SELECT $column3 FROM {$table3} WHERE entity_id = $nid")->fetchField();
 
 				// code for permission to view "Other people with this aspect include:"
 				// Get a single value out of the database (Public or Private).
@@ -39,7 +45,7 @@ foreach ($result as $record) {
 //						echo $nid . "<br />";
 						echo "<a href=\"../natal/" . $record2['title'] . "\"";
 						echo "<span class=\"fullname\" ; >"  . $first . " " . $last . ":</span></a>";
-						echo " " . $planet_0 . " " . $angle . " ". $planet_1 . " angle: " . $record[$field] . "&deg;<br /><br />";
+						echo " " . $planet_0 . " in " . $result3 . " " . $angle . " ". $planet_1 . " angle: " . $record[$field] . "&deg;<br /><br />";
 					}
 				}
 				
@@ -48,8 +54,8 @@ foreach ($result as $record) {
 	}
 }
 
-echo "planet1 = " . $planet_0 . "<br />";  // e.g., "Mercury"
-echo "planet2 = " . $planet_1 . "<br />";  // e.g., "Saturn"
-echo "aspect = " . $angle . "<br />";  // e.g., "square"
+// echo "planet1 = " . $planet_0 . "<br />";  // e.g., "Mercury"
+// echo "planet2 = " . $planet_1 . "<br />";  // e.g., "Saturn"
+// echo "aspect = " . $angle . "<br />";  // e.g., "square"
 
 ?>

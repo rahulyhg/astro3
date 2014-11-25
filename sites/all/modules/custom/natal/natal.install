@@ -15,16 +15,17 @@ function natal_install() {  // takes no parameters
 	variable_set('natal_birth_city', '');   variable_set('natal_birth_info', '');
 	variable_set('natal_birth_state', '');  variable_set('natal_birth_country', '');
 	
-	variable_set('natal_sun_sign', '');     variable_set('natal_sun_degree', '');     variable_set('natal_sun_minute', '');
-	variable_set('natal_moon_sign', '');    variable_set('natal_moon_degree', '');    variable_set('natal_moon_minute', '');
-	variable_set('natal_mercury_sign', ''); variable_set('natal_mercury_degree', ''); variable_set('natal_mercury_minute', '');
-	variable_set('natal_venus_sign', '');   variable_set('natal_venus_degree', '');   variable_set('natal_venus_minute', '');
-	variable_set('natal_mars_sign', '');    variable_set('natal_mars_degree', '');    variable_set('natal_mars_minute', '');
-	variable_set('natal_jupiter_sign', ''); variable_set('natal_jupiter_degree', ''); variable_set('natal_jupiter_minute', '');
-	variable_set('natal_saturn_sign', '');  variable_set('natal_saturn_degree', '');  variable_set('natal_saturn_minute', '');
-	variable_set('natal_uranus_sign', '');  variable_set('natal_uranus_degree', '');  variable_set('natal_uranus_minute', '');
-	variable_set('natal_neptune_sign', ''); variable_set('natal_neptune_degree', ''); variable_set('natal_neptune_minute', '');
-	variable_set('natal_pluto_sign', '');   variable_set('natal_pluto_degree', '');   variable_set('natal_pluto_minute', '');
+	variable_set('natal_sun_sign', '');     variable_set('natal_sun_degree', '');     variable_set('natal_sun_minute', '');     variable_set('natal_sun_house', '');
+	variable_set('natal_moon_sign', '');    variable_set('natal_moon_degree', '');    variable_set('natal_moon_minute', '');    variable_set('natal_moon_house', '');
+	variable_set('natal_mercury_sign', ''); variable_set('natal_mercury_degree', ''); variable_set('natal_mercury_minute', ''); variable_set('natal_mercury_house', '');
+	variable_set('natal_venus_sign', '');   variable_set('natal_venus_degree', '');   variable_set('natal_venus_minute', '');   variable_set('natal_venus_house', '');
+	variable_set('natal_mars_sign', '');    variable_set('natal_mars_degree', '');    variable_set('natal_mars_minute', '');    variable_set('natal_mars_house', '');
+	variable_set('natal_jupiter_sign', ''); variable_set('natal_jupiter_degree', ''); variable_set('natal_jupiter_minute', ''); variable_set('natal_jupiter_house', '');
+	variable_set('natal_saturn_sign', '');  variable_set('natal_saturn_degree', '');  variable_set('natal_saturn_minute', '');  variable_set('natal_saturn_house', '');
+	variable_set('natal_uranus_sign', '');  variable_set('natal_uranus_degree', '');  variable_set('natal_uranus_minute', '');  variable_set('natal_uranus_house', '');
+	variable_set('natal_neptune_sign', ''); variable_set('natal_neptune_degree', ''); variable_set('natal_neptune_minute', ''); variable_set('natal_neptune_house', '');
+	variable_set('natal_pluto_sign', '');   variable_set('natal_pluto_degree', '');   variable_set('natal_pluto_minute', '');   variable_set('natal_pluto_house', '');
+	variable_set('natal_nnode_sign', '');   variable_set('natal_nnode_degree', '');   variable_set('natal_nnode_minute', '');   variable_set('natal_nnode_house', '');
 
 // VARIABLE_SET_CONJUNCTS
 	variable_set('natal_sun_moon_conjunct', ''); variable_set('natal_sun_mercury_conjunct', ''); variable_set('natal_sun_venus_conjunct', ''); variable_set('natal_sun_mars_conjunct', ''); variable_set('natal_sun_jupiter_conjunct', ''); variable_set('natal_sun_saturn_conjunct', ''); variable_set('natal_sun_uranus_conjunct', ''); variable_set('natal_sun_neptune_conjunct', ''); variable_set('natal_sun_pluto_conjunct', ''); variable_set('natal_sun_nnode_conjunct', ''); variable_set('natal_sun_asc_conjunct', '');
@@ -134,36 +135,57 @@ function natal_install() {  // takes no parameters
 	$fields['natal_sun_sign']       = array('field_name' => 'natal_sun_sign', 'type'       => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_sun_degree']     = array('field_name' => 'natal_sun_degree', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_sun_minute']     = array('field_name' => 'natal_sun_minute', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_sun_house']      = array('field_name' => 'natal_sun_house', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_moon_sign']      = array('field_name' => 'natal_moon_sign', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_moon_degree']    = array('field_name' => 'natal_moon_degree', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_moon_minute']    = array('field_name' => 'natal_moon_minute', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_moon_house']     = array('field_name' => 'natal_moon_house', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_mercury_sign']   = array('field_name' => 'natal_mercury_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_mercury_degree'] = array('field_name' => 'natal_mercury_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_mercury_minute'] = array('field_name' => 'natal_mercury_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mercury_house']  = array('field_name' => 'natal_mercury_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_venus_sign']     = array('field_name' => 'natal_venus_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_venus_degree']   = array('field_name' => 'natal_venus_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_venus_minute']   = array('field_name' => 'natal_venus_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_venus_house']    = array('field_name' => 'natal_venus_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_mars_sign']      = array('field_name' => 'natal_mars_sign', 'type'      => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_mars_degree']    = array('field_name' => 'natal_mars_degree', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_mars_minute']    = array('field_name' => 'natal_mars_minute', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_mars_house']     = array('field_name' => 'natal_mars_house', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_jupiter_sign']   = array('field_name' => 'natal_jupiter_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_jupiter_degree'] = array('field_name' => 'natal_jupiter_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_jupiter_minute'] = array('field_name' => 'natal_jupiter_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_jupiter_house']  = array('field_name' => 'natal_jupiter_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_saturn_sign']    = array('field_name' => 'natal_saturn_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_saturn_degree']  = array('field_name' => 'natal_saturn_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_saturn_minute']  = array('field_name' => 'natal_saturn_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_saturn_house']   = array('field_name' => 'natal_saturn_house', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_uranus_sign']    = array('field_name' => 'natal_uranus_sign', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_uranus_degree']  = array('field_name' => 'natal_uranus_degree', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_uranus_minute']  = array('field_name' => 'natal_uranus_minute', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_uranus_house']   = array('field_name' => 'natal_uranus_house', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_neptune_sign']   = array('field_name' => 'natal_neptune_sign', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_neptune_degree'] = array('field_name' => 'natal_neptune_degree', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_neptune_minute'] = array('field_name' => 'natal_neptune_minute', 'type' => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_neptune_house']  = array('field_name' => 'natal_neptune_house', 'type'  => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_pluto_sign']     = array('field_name' => 'natal_pluto_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_pluto_degree']   = array('field_name' => 'natal_pluto_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_pluto_minute']   = array('field_name' => 'natal_pluto_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_pluto_house']    = array('field_name' => 'natal_pluto_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
+
 	$fields['natal_nnode_sign']     = array('field_name' => 'natal_nnode_sign', 'type'     => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_nnode_degree']   = array('field_name' => 'natal_nnode_degree', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
 	$fields['natal_nnode_minute']   = array('field_name' => 'natal_nnode_minute', 'type'   => 'text', 'settings' => array('max_length' =>  7,),);
+	$fields['natal_nnode_house']    = array('field_name' => 'natal_nnode_house', 'type'    => 'text', 'settings' => array('max_length' =>  7,),);
 
 // Create fields for ALL CUSPS (ex: $fields['natal_asc_sign'], $fields['natal_asc_degree'], $fields['natal_asc_minute']) ===================	
 	$fields['natal_asc_sign']       = array('field_name' => 'natal_asc_sign', 'type'       => 'text', 'settings' => array('max_length' =>  7,),);

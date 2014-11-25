@@ -57,7 +57,7 @@ $output .= $p[$i] . " " . $P[$i] . "<br />" . $sign . " " . $degree . "&#176;" .
 echo "<pre>";
 $query = db_select('field_data_natal_moon_sign', 'natal_moon_sign_value')
     ->fields('natal_moon_sign_value')
-	->condition('entity_id', 1758,'=')
+	->condition('entity_id', 2151,'=')
     ->execute()
     ->fetchAssoc();
 $ss = $query['natal_moon_sign_value'];
