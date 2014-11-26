@@ -49,3 +49,4 @@ package = Astrology
 ; 4) search API > listing display > fields
 ; 5) moon_color_html.php line 60
 ; 6) 'Moon Color of the Day' block
+; 7) aspect_code.php line 21

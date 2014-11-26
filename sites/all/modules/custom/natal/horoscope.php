@@ -348,7 +348,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 1st House';
 				$return_house = "01";
 			}
-		} elseif (($b[11] > $b[12]) && (($b[11] <= $b[$j]) && (($b[$j]) <= ($b[12]+360)))) {
+		} elseif (($b[11] > $b[12]) && (($b[11] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[12]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 1st House';
 				$return_house = "01";
@@ -366,7 +366,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 2nd House';
 				$return_house = "02";
 			}
-		} elseif (($b[12] > $b[13]) && (($b[12] <= $b[$j]) && (($b[$j]) <= ($b[13]+360)))) {
+		} elseif (($b[12] > $b[13]) && (($b[12] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[13]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 2nd House';
 				$return_house = "02";
@@ -384,7 +384,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 3rd House';
 				$return_house = "03";
 			}
-		} elseif (($b[13] > $b[14]) && (($b[13] <= $b[$j]) && (($b[$j]) <= ($b[14]+360)))) {
+		} elseif (($b[13] > $b[14]) && (($b[13] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[14]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 3rd House';
 				$return_house = "03";
@@ -402,7 +402,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 4th House';
 				$return_house = "04";
 			}
-		} elseif (($b[14] > $b[15]) && (($b[14] <= $b[$j]) && (($b[$j]) <= ($b[15]+360)))) {
+		} elseif (($b[14] > $b[15]) && (($b[14] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[15]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 4th House';
 				$return_house = "04";
@@ -420,7 +420,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 5th House';
 				$return_house = "05";
 			}
-		} elseif (($b[15] > $b[16]) && (($b[15] <= $b[$j]) && (($b[$j]) <= ($b[16]+360)))) { // fixed this one
+		} elseif (($b[15] > $b[16]) && (($b[15] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[16]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 5th House';
 				$return_house = "05";
@@ -438,7 +438,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 6th House';
 				$return_house = "06";
 			}
-		} elseif (($b[16] > $b[17]) && (($b[16] <= $b[$j]) && (($b[$j]) <= ($b[17]+360)))) {
+		} elseif (($b[16] > $b[17]) && (($b[16] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[17]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 6th House';
 				$return_house = "06";
@@ -456,7 +456,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 7th House';
 				$return_house = "07";
 			}
-		} elseif (($b[17] > $b[18]) && (($b[17] <= $b[$j]) && (($b[$j]) <= ($b[18]+360)))) {
+		} elseif (($b[17] > $b[18]) && (($b[17] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[18]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 7th House';
 				$return_house = "07";
@@ -474,7 +474,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 8th House';
 				$return_house = "08";
 			}
-		} elseif (($b[18] > $b[19]) && (($b[18] <= $b[$j]) && (($b[$j]) <= ($b[19]+360)))) {
+		} elseif (($b[18] > $b[19]) && (($b[18] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[19]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 8th House';
 				$return_house = "08";
@@ -484,7 +484,7 @@ $planet_house = array();
 			}
 
 // North Node in the 9th house
-		} elseif (($b[19] < $b[20]) && (($b[19] <= $b[$j]+360) && ($b[$j] <= $b[20]))) {
+		} elseif (($b[19] < $b[20]) && (($b[19] <= $b[$j]) && ($b[$j] <= $b[20]))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 9th House';
 				$return_house = "09";
@@ -492,7 +492,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 9th House';
 				$return_house = "09";
 			}
-		} elseif (($b[19] > $b[20]) && (($b[19] <= $b[$j]) && (($b[$j]) <= ($b[20]+360)))) {
+		} elseif (($b[19] > $b[20]) && (($b[19] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[20]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 9th House';
 				$return_house = "09";
@@ -510,7 +510,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 10th House';
 				$return_house = "10";
 			}
-		} elseif (($b[20] > $b[21]) && (($b[20] <= $b[$j]) && (($b[$j]) <= ($b[21]+360)))) {
+		} elseif (($b[20] > $b[21]) && (($b[20] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[21]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 10th House';
 				$return_house = "10";
@@ -528,7 +528,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 11th House';
 				$return_house = "11";
 			}
-		} elseif (($b[21] > $b[22]) && (($b[21] <= $b[$j]) && (($b[$j]) <= ($b[22]+360)))) {
+		} elseif (($b[21] > $b[22]) && (($b[21] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[21]+360)))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 11th House';
 				$return_house = "11";
@@ -602,6 +602,7 @@ echo '</pre><br />';
 	for ($i=0; $i<11; $i++) {
 	$db_table_name = "field_data_natal_" . $q[$i] . "_house";
 	$db_table_value = "natal_" . $q[$i] . "_house_value";
+	$db_format = "natal_" . $q[$i] . "_house_format";
 	db_merge($db_table_name)
 		->key(array('entity_id' => $nid))
 	    ->fields(array(
@@ -609,6 +610,8 @@ echo '</pre><br />';
 			'bundle' => 'natal',
 			'entity_id' => $nid,
 			$db_table_value => $planet_house[$i],
+			$db_format => 'plain_text',
+			'language' => 'und',
 			'delta' => 0,
 		))
     ->execute();
@@ -653,39 +656,40 @@ echo '</pre><br />';
 		foreach ($conjuncts as $conjunct) {
 			$db_table_name = "field_data_natal_" . $conjunct[0];
 			$db_table_value = "natal_" . $conjunct[0] . "_value";
+			$db_format = "natal_" . $conjunct[0] . "_format";
 			db_merge($db_table_name)
 				->key(array('entity_id' => $nid))
 			    ->fields(array(
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					$db_table_value => $conjunct[1],
+					'language' => 'und',
 					'delta' => 0,
+					$db_table_value => $conjunct[1],
+					$db_format => 'plain_text',
 				))
 		    ->execute();
 			if ($conjunct[1] != "") { // if the table entry is not NULL
-				$ab = explode("_", $conjunct[0]);  // $conjunct[0] ==> Venus Pluto
+/*				$ab = explode("_", $conjunct[0]);  // $conjunct[0] ==> Venus Pluto
 				if (($ab[0] == "jupiter") || ($ab[1] == "jupiter")) {
 					$psh0 = explode(" ", $planet_sign_house[10]);
 					$psh1 = explode(" ", $planet_sign_house[11]);
-//					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
+					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
 					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4] . ", ";
 				}
 				if (($ab[0] == "uranus") || ($ab[1] == "uranus")) {
 					$psh0 = explode(" ", $planet_sign_house[14]);
 					$psh1 = explode(" ", $planet_sign_house[15]);					
-//					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
+					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
 					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4];
 				}
-
-//				echo "planet A: " . $ab[0] . ", planet B:" . $ab[1] . "<br />";
-				
+				echo "planet A: " . $ab[0] . ", planet B:" . $ab[1] . "<br />";
+*/				
 				if ($conjunct[1] <= 2.0) { // if the orb is <= 2.0 then color the text BLUE
 					echo "<span style=\"color:blue\"; >";
 					$aspect = $conjunct[0] . " &#177; " . $conjunct[1] ;
 					echo "<a href=aspect/" . $conjunct[0] . "> " . $conjunct[0] . " </a>&#177;" . $conjunct[1] . " degrees<br />";
 					echo "</span>";
-
 
 //	echo planet_A in house_A conjunct planet_B in house_B
 //	if Venus then echo planet_sign_house[6], planet_sign_house[7]  ==> Venus in Aries in the 3rd house
@@ -704,17 +708,20 @@ echo '</pre><br />';
 		foreach ($sextiles as $sextile) {
 			$db_table_name = "field_data_natal_" . $sextile[0];
 			$db_table_value = "natal_" . $sextile[0] . "_value";
+			$db_format = "natal_" . $sextile[0] . "_format";
 			db_merge($db_table_name)
 				->key(array('entity_id' => $nid))
 			    ->fields(array(
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					$db_table_value => $sextile[1],
+					'language' => 'und',
 					'delta' => 0,
+					$db_table_value => $sextile[1],
+					$db_format => 'plain_text',
 				))
 		    ->execute();
-			if ($sextile[1] != "") {
+			if ($sextile[1] != "") { // if the table entry is not NULL
 				if ($sextile[1] <= 2.0) {
 					echo "<span style=\"color:purple\"; >";
 					$aspect = $sextile[0] . " &#177; " . $sextile[1] ;
@@ -730,14 +737,17 @@ echo '</pre><br />';
 		foreach ($squares as $square) {
 			$db_table_name = "field_data_natal_" . $square[0];
 			$db_table_value = "natal_" . $square[0] . "_value";
+			$db_format = "natal_" . $square[0] . "_format";
 			db_merge($db_table_name)
 				->key(array('entity_id' => $nid))
 			    ->fields(array(
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					$db_table_value => $square[1],
+					'language' => 'und',
 					'delta' => 0,
+					$db_table_value => $square[1],
+					$db_format => 'plain_text',
 				))
 		    ->execute();
 			if ($square[1] != "") {
@@ -756,14 +766,17 @@ echo '</pre><br />';
 		foreach ($trines as $trine) {
 			$db_table_name = "field_data_natal_" . $trine[0];
 			$db_table_value = "natal_" . $trine[0] . "_value";
+			$db_format = "natal_" . $trine[0] . "_format";
 			db_merge($db_table_name)
 				->key(array('entity_id' => $nid))
 			    ->fields(array(
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					$db_table_value => $trine[1],
+					'language' => 'und',
 					'delta' => 0,
+					$db_table_value => $trine[1],
+					$db_format => 'plain_text',
 				))
 		    ->execute();
 			if ($trine[1] != "") {
@@ -782,14 +795,17 @@ echo '</pre><br />';
 		foreach ($opposites as $opposite) {	
 			$db_table_name = "field_data_natal_" . $opposite[0];
 			$db_table_value = "natal_" . $opposite[0] . "_value";
+			$db_format = "natal_" . $opposite[0] . "_format";
 			db_merge($db_table_name)
 				->key(array('entity_id' => $nid))
 			    ->fields(array(
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					$db_table_value => $opposite[1],
+					'language' => 'und',
 					'delta' => 0,
+					$db_table_value => $opposite[1],
+					$db_format => 'plain_text',
 				))
 		    ->execute();
 			if ($opposite[1] != "") {
