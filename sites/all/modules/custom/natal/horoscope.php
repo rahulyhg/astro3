@@ -64,7 +64,7 @@ if(isset($_POST['submit']) && ($_POST['full_name'] != NULL)) {
 //	echo 'Node ID: ' . $nid . '<hr />';
 
 // retrieve the values for B = 'selected individual' from the database
-$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","nnode","asc","cusp02","cusp03","mc","cusp05","cusp06","asc","cusp02","cusp03","mc","cusp05","cusp06");
+$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","asc","nnode","cusp02","cusp03","mc","cusp05","cusp06","asc","cusp02","cusp03","mc","cusp05","cusp06");
 for ($j=0; $j<count($p); $j++) {
 
 	$sdm = array('sign','degree','minute');
@@ -341,32 +341,6 @@ $planet_house = array();
 
 
 
-/* North Node in the 1st house
-		if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 1st House';
-				$return_house = "01";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 1st House';
-				$return_house = "01";
-			}
-		} elseif (($b[11] > $b[12]) && (($b[$j] => $b[11])) && ($b[$j] <= 360))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 1st House';
-				$return_house = "01";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 1st House';
-				$return_house = "01";
-			}
-		} elseif (($b[11] > $b[12]) && (($b[$j] <= $b[12])) && ($b[$j] => 0))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 1st House';
-				$return_house = "01";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 1st House';
-				$return_house = "01";
-			}
-*/
 	
 	 // North Node in the 1st house
 			if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
@@ -744,7 +718,7 @@ echo '</pre><br />';
 
 // Add information about CSSTO aspects
 	$angle = array($sunB,$moonB,$mercuryB,$venusB,$marsB,$jupiterB,$saturnB,$uranusB,$neptuneB,$plutoB,$nnodeB,$cusp01B);
-	$planet = array("Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Nnode","ASC","MC");
+	$planet = array("Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","ASC","NNode","MC");
 	$conjuncts = array();
 	$sextiles = array();
 	$squares = array();

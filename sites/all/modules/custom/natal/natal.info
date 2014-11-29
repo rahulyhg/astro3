@@ -1,9 +1,13 @@
 name = Natal
 description = A content type to store natal info (all fields)
 core = 7.x
-version = 7.x-1.12-dev
+version = 7.x-1.13-dev
 configure = admin/config/natal/manage
 package = Astrology
+
+; 7.x-1.13-dev    (takes about 125 seconds to load)
+; Fixed "$fields['natal_asc_nnode_conjunct']" CSSTO in natal.install
+; Fixed algorithm to calculate location of house and sign in horoscope.php
 
 ; 7.x-1.12-dev    (takes about 125 seconds to load)
 ; Added natal planet house info: variable_set() and $fields['natal_planet_house'] (at top of natal.install)
@@ -47,6 +51,6 @@ package = Astrology
 ; 2) example_extract_html.php line 3
 ; 3) views > astro_list > filter_criteria
 ; 4) search API > listing display > fields
-; 5) moon_color_html.php line 60
-; 6) 'Moon Color of the Day' block
+; 5) moon_color_html.php line 3
+; 6) 'Moon Color of the Day' block line 69
 ; 7) aspect_code.php line 21

@@ -1,5 +1,7 @@
 <?php
 global $user;
+$daily_id = 2229;
+
 $title = drupal_get_title();  // e.g., "mercury_saturn_square"
 $components = explode('_',$title);
 $planet_0 = ucfirst($components[0]);
@@ -18,11 +20,13 @@ foreach ($result as $record) {
 	if($record[$field] != NULL) {
 		$result2 = db_query("SELECT nid, title, type FROM {node}")->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($result2 as $record2) {
-			if(($record2['type'] == 'natal') && ($record2['nid'] == $record['entity_id']) && ($record['entity_id'] != '2151')) {  // omit daily_daily = 2151
+			if(($record2['type'] == 'natal') && ($record2['nid'] == $record['entity_id']) && ($record['entity_id'] != $daily_id)) {  // omit daily_daily = 2229
 				$full = explode('_',$record2['title']);
 				$first = ucfirst($full[1]);
 				$last = ucfirst($full[0]);
 				$nid = $record2['nid'];
+				$result3 = "";  // define $result3 in the event that $t[3] == "asc"
+				$result4 = "";  // define $result4 in the event that $t[3] == "asc"
 				
 				$t3 = explode("_", $table);
 				$t4 = explode("_", $table);
@@ -30,8 +34,16 @@ foreach ($result as $record) {
 				$table4 = "field_data_natal_" . $t4[4]. "_house";  // e.g., "field_data_natal_mercury_house"
 				$column3 = "natal_" . $t3[3]. "_house_value";  // e.g., "natal_mercury_house_value" 
 				$column4 = "natal_" . $t4[4]. "_house_value";  // e.g., "natal_mercury_house_value" 
-				$result3 = db_query("SELECT $column3 FROM {$table3} WHERE entity_id = $nid")->fetchField(); // e.g., 3rd house
-				$result4 = db_query("SELECT $column4 FROM {$table4} WHERE entity_id = $nid")->fetchField(); // e.g., 	5th house
+				if ($t3[3] != "asc") {
+					$result3 = db_query("SELECT $column3 FROM {$table3} WHERE entity_id = $nid")->fetchField(); // e.g., 3rd house
+				} else {
+					$result3 = "01";
+				}
+				if ($t4[4] != "asc") {
+					$result4 = db_query("SELECT $column4 FROM {$table4} WHERE entity_id = $nid")->fetchField(); // e.g., 3rd house
+				} else {
+					$result4 = "01";
+				}
 
 				// code for permission to view "Other people with this aspect include:"
 				// Get a single value out of the database (Public or Private).
