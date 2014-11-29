@@ -273,7 +273,7 @@ function natal_install() {  // takes no parameters
 	$fields['natal_neptune_asc_conjunct']      = array('field_name' => 'natal_neptune_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_nnode_conjunct']      = array('field_name' => 'natal_pluto_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_asc_conjunct']        = array('field_name' => 'natal_pluto_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
-	$fields['natal_nnode_asc_conjunct']        = array('field_name' => 'natal_nnode_asc_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_conjunct']        = array('field_name' => 'natal_asc_nnode_conjunct', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 
 // SEXTILE
 	$fields['natal_sun_moon_sextile']         = array('field_name' => 'natal_sun_moon_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
@@ -341,7 +341,7 @@ function natal_install() {  // takes no parameters
 	$fields['natal_neptune_asc_sextile']      = array('field_name' => 'natal_neptune_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_nnode_sextile']      = array('field_name' => 'natal_pluto_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_asc_sextile']        = array('field_name' => 'natal_pluto_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
-	$fields['natal_nnode_asc_sextile']        = array('field_name' => 'natal_nnode_asc_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_sextile']        = array('field_name' => 'natal_asc_nnode_sextile', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 
 // SQUARE
 	$fields['natal_sun_moon_square']         = array('field_name' => 'natal_sun_moon_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
@@ -409,7 +409,7 @@ function natal_install() {  // takes no parameters
 	$fields['natal_neptune_asc_square']      = array('field_name' => 'natal_neptune_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_nnode_square']      = array('field_name' => 'natal_pluto_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_asc_square']        = array('field_name' => 'natal_pluto_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
-	$fields['natal_nnode_asc_square']        = array('field_name' => 'natal_nnode_asc_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_square']        = array('field_name' => 'natal_asc_nnode_square', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 
 // TRINE
 	$fields['natal_sun_moon_trine']         = array('field_name' => 'natal_sun_moon_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
@@ -477,7 +477,7 @@ function natal_install() {  // takes no parameters
 	$fields['natal_neptune_asc_trine']      = array('field_name' => 'natal_neptune_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_nnode_trine']      = array('field_name' => 'natal_pluto_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_asc_trine']        = array('field_name' => 'natal_pluto_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
-	$fields['natal_nnode_asc_trine']        = array('field_name' => 'natal_nnode_asc_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_trine']        = array('field_name' => 'natal_asc_nnode_trine', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 
 // OPPOSITE
 	$fields['natal_sun_moon_opposite']         = array('field_name' => 'natal_sun_moon_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
@@ -545,7 +545,7 @@ function natal_install() {  // takes no parameters
 	$fields['natal_neptune_asc_opposite']      = array('field_name' => 'natal_neptune_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_nnode_opposite']      = array('field_name' => 'natal_pluto_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 	$fields['natal_pluto_asc_opposite']        = array('field_name' => 'natal_pluto_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
-	$fields['natal_nnode_asc_opposite']        = array('field_name' => 'natal_nnode_asc_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
+	$fields['natal_asc_nnode_opposite']        = array('field_name' => 'natal_asc_nnode_opposite', 'type'  => 'text', 'settings' => array('max_length' =>  3,),);
 
 	foreach ($fields as $field) {
 		field_create_field($field);
