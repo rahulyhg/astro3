@@ -338,8 +338,10 @@ $planet_house = array();
 
 //$planet_house = array();
 //for ($k=0; $k<11; $k++) {
-	
- // North Node in the 1st house
+
+
+
+/* North Node in the 1st house
 		if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 1st House';
@@ -348,7 +350,7 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 1st House';
 				$return_house = "01";
 			}
-		} elseif (($b[11] > $b[12]) && (($b[11] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[12]+360)))) {
+		} elseif (($b[11] > $b[12]) && (($b[$j] => $b[11])) && ($b[$j] <= 360))) {
 			if (ucwords($q[$j]) == "Nnode") {
 				$return = 'North Node in the 1st House';
 				$return_house = "01";
@@ -356,197 +358,312 @@ $planet_house = array();
 				$return = ucwords($q[$j]) . ' in the 1st House';
 				$return_house = "01";
 			}
+		} elseif (($b[11] > $b[12]) && (($b[$j] <= $b[12])) && ($b[$j] => 0))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+				$return_house = "01";
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+				$return_house = "01";
+			}
+*/
+	
+	 // North Node in the 1st house
+			if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 1st House';
+					$return_house = "01";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 1st House';
+					$return_house = "01";
+				}
+			} elseif (($b[11] > $b[12]) && (($b[$j] >= $b[11]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 1st House';
+					$return_house = "01";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 1st House';
+					$return_house = "01";
+				}
+			} elseif (($b[11] > $b[12]) && (($b[$j] <= $b[12]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 1st House';
+					$return_house = "01";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 1st House';
+					$return_house = "01";
+				}
 
- // North Node in the 2nd house
-		} elseif (($b[12] < $b[13]) && (($b[12] <= $b[$j]) && ($b[$j] <= $b[13]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 2nd House';
-				$return_house = "02";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 2nd House';
-				$return_house = "02";
-			}
-		} elseif (($b[12] > $b[13]) && (($b[12] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[13]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 2nd House';
-				$return_house = "02";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 2nd House';
-				$return_house = "02";
-			}
+	 // North Node in the 2nd house
+			} elseif (($b[12] < $b[13]) && (($b[12] <= $b[$j]) && ($b[$j] <= $b[13]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 2nd House';
+					$return_house = "02";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 2nd House';
+					$return_house = "02";
+				}
+			} elseif (($b[12] > $b[13]) && (($b[$j] >= $b[12]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 2nd House';
+					$return_house = "02";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 2nd House';
+					$return_house = "02";
+				}
+			} elseif (($b[12] > $b[13]) && (($b[$j] <= $b[13]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 2nd House';
+					$return_house = "02";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 2nd House';
+					$return_house = "02";
+				}
 
-// North Node in the 3rd house
-		} elseif (($b[13] < $b[14]) && (($b[13] <= $b[$j]) && ($b[$j] <= $b[14]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 3rd House';
-				$return_house = "03";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 3rd House';
-				$return_house = "03";
-			}
-		} elseif (($b[13] > $b[14]) && (($b[13] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[14]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 3rd House';
-				$return_house = "03";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 3rd House';
-				$return_house = "03";
-			}
+	// North Node in the 3rd house
+			} elseif (($b[13] < $b[14]) && (($b[13] <= $b[$j]) && ($b[$j] <= $b[14]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 3rd House';
+					$return_house = "03";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 3rd House';
+					$return_house = "03";
+				}
+			} elseif (($b[13] > $b[14]) && (($b[$j] >= $b[13]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 3rd House';
+					$return_house = "03";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 3rd House';
+					$return_house = "03";
+				}
+			} elseif (($b[13] > $b[14]) && (($b[$j] <= $b[14]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 3rd House';
+					$return_house = "03";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 3rd House';
+					$return_house = "03";
+				}
 
-// North Node in the 4th house
-		} elseif (($b[14] < $b[15]) && (($b[14] <= $b[$j]) && ($b[$j] <= $b[15]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 4th House';
-				$return_house = "04";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 4th House';
-				$return_house = "04";
-			}
-		} elseif (($b[14] > $b[15]) && (($b[14] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[15]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 4th House';
-				$return_house = "04";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 4th House';
-				$return_house = "04";
-			}
+	// North Node in the 4th house
+			} elseif (($b[14] < $b[15]) && (($b[14] <= $b[$j]) && ($b[$j] <= $b[15]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 4th House';
+					$return_house = "04";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 4th House';
+					$return_house = "04";
+				}
+			} elseif (($b[14] > $b[15]) && (($b[$j] >= $b[14]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 4th House';
+					$return_house = "04";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 4th House';
+					$return_house = "04";
+				}
+			} elseif (($b[14] > $b[15]) && (($b[$j] <= $b[15]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 4th House';
+					$return_house = "04";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 4th House';
+					$return_house = "04";
+				}
 
-// North Node in the 5th house
-		} elseif (($b[15] < $b[16]) && (($b[15] <= $b[$j]) && ($b[$j] <= $b[16]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 5th House';
-				$return_house = "05";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 5th House';
-				$return_house = "05";
-			}
-		} elseif (($b[15] > $b[16]) && (($b[15] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[16]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 5th House';
-				$return_house = "05";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 5th House';
-				$return_house = "05";
-			}
+	// North Node in the 5th house
+			} elseif (($b[15] < $b[16]) && (($b[15] <= $b[$j]) && ($b[$j] <= $b[16]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 5th House';
+					$return_house = "05";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 5th House';
+					$return_house = "05";
+				}
+			} elseif (($b[15] > $b[16]) && (($b[$j] >= $b[15]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 5th House';
+					$return_house = "05";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 5th House';
+					$return_house = "05";
+				}
+			} elseif (($b[15] > $b[16]) && (($b[$j] <= $b[16]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 5th House';
+					$return_house = "05";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 5th House';
+					$return_house = "05";
+				}
 
-// North Node in the 6th house
-		} elseif (($b[16] < $b[17]) && (($b[16] <= $b[$j]) && ($b[$j] <= $b[17]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 6th House';
-				$return_house = "06";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 6th House';
-				$return_house = "06";
-			}
-		} elseif (($b[16] > $b[17]) && (($b[16] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[17]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 6th House';
-				$return_house = "06";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 6th House';
-				$return_house = "06";
-			}
+	// North Node in the 6th house
+			} elseif (($b[16] < $b[17]) && (($b[16] <= $b[$j]) && ($b[$j] <= $b[17]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 6th House';
+					$return_house = "06";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 6th House';
+					$return_house = "06";
+				}
+			} elseif (($b[16] > $b[17]) && (($b[$j] >= $b[16]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 6th House';
+					$return_house = "06";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 6th House';
+					$return_house = "06";
+				}
+			} elseif (($b[16] > $b[17]) && (($b[$j] <= $b[17]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 6th House';
+					$return_house = "06";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 6th House';
+					$return_house = "06";
+				}
 
-// North Node in the 7th house
-		} elseif (($b[17] < $b[18]) && (($b[17] <= $b[$j]) && ($b[$j] <= $b[18]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 7th House';
-				$return_house = "07";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 7th House';
-				$return_house = "07";
-			}
-		} elseif (($b[17] > $b[18]) && (($b[17] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[18]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 7th House';
-				$return_house = "07";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 7th House';
-				$return_house = "07";
-			}
+	// North Node in the 7th house
+			} elseif (($b[17] < $b[18]) && (($b[17] <= $b[$j]) && ($b[$j] <= $b[18]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 7th House';
+					$return_house = "07";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 7th House';
+					$return_house = "07";
+				}
+			} elseif (($b[17] > $b[18]) && (($b[$j] >= $b[17]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 7th House';
+					$return_house = "07";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 7th House';
+					$return_house = "07";
+				}
+			} elseif (($b[17] > $b[18]) && (($b[$j] <= $b[18]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 7th House';
+					$return_house = "07";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 7th House';
+					$return_house = "07";
+				}
 
-// North Node in the 8th house
-		} elseif (($b[18] < $b[19]) && (($b[18] <= $b[$j]) && ($b[$j] <= $b[19]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 8th House';
-				$return_house = "08";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 8th House';
-				$return_house = "08";
-			}
-		} elseif (($b[18] > $b[19]) && (($b[18] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[19]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 8th House';
-				$return_house = "08";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 8th House';
-				$return_house = "08";
-			}
+	// North Node in the 8th house
+			} elseif (($b[18] < $b[19]) && (($b[18] <= $b[$j]) && ($b[$j] <= $b[19]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 8th House';
+					$return_house = "08";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 8th House';
+					$return_house = "08";
+				}
+			} elseif (($b[18] > $b[19]) && (($b[$j] >= $b[18]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 8th House';
+					$return_house = "08";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 8th House';
+					$return_house = "08";
+				}
+			} elseif (($b[18] > $b[19]) && (($b[$j] <= $b[19]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 8th House';
+					$return_house = "08";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 8th House';
+					$return_house = "08";
+				}
 
-// North Node in the 9th house
-		} elseif (($b[19] < $b[20]) && (($b[19] <= $b[$j]) && ($b[$j] <= $b[20]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 9th House';
-				$return_house = "09";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 9th House';
-				$return_house = "09";
-			}
-		} elseif (($b[19] > $b[20]) && (($b[19] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[20]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 9th House';
-				$return_house = "09";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 9th House';
-				$return_house = "09";
-			}
+	// North Node in the 9th house
+			} elseif (($b[19] < $b[20]) && (($b[19] <= $b[$j]) && ($b[$j] <= $b[20]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 9th House';
+					$return_house = "09";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 9th House';
+					$return_house = "09";
+				}
+			} elseif (($b[19] > $b[20]) && (($b[$j] >= $b[19]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 9th House';
+					$return_house = "09";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 9th House';
+					$return_house = "09";
+				}
+			} elseif (($b[19] > $b[20]) && (($b[$j] <= $b[20]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 9th House';
+					$return_house = "09";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 9th House';
+					$return_house = "09";
+				}
 
-// North Node in the 10th house
-		} elseif (($b[20] < $b[21]) && (($b[20] <= $b[$j]) && ($b[$j] <= $b[21]))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 10th House';
-				$return_house = "10";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 10th House';
-				$return_house = "10";
-			}
-		} elseif (($b[20] > $b[21]) && (($b[20] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[21]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 10th House';
-				$return_house = "10";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 10th House';
-				$return_house = "10";
-			}
+	// North Node in the 10th house
+			} elseif (($b[20] < $b[21]) && (($b[20] <= $b[$j]) && ($b[$j] <= $b[21]))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 10th House';
+					$return_house = "10";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 10th House';
+					$return_house = "10";
+				}
+			} elseif (($b[20] > $b[21]) && (($b[$j] >= $b[20]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 10th House';
+					$return_house = "10";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 10th House';
+					$return_house = "10";
+				}
+			} elseif (($b[20] > $b[21]) && (($b[$j] <= $b[21]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 10th House';
+					$return_house = "10";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 10th House';
+					$return_house = "10";
+				}
 
-// North Node in the 11th house
-		} elseif (($b[21] < $b[22]) && (($b[21] <= $b[$j]) && ($b[$j] <= $b[22]))) { 	
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 11th House';
-				$return_house = "11";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 11th House';
-				$return_house = "11";
-			}
-		} elseif (($b[21] > $b[22]) && (($b[21] <= ($b[$j]+360)) && (($b[$j]+360) <= ($b[21]+360)))) {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 11th House';
-				$return_house = "11";
-			} else {
-				$return = ucwords($q[$j]) . ' in the 11th House';
-				$return_house = "11";
-			}
+	// North Node in the 11th house
+			} elseif (($b[21] < $b[22]) && (($b[21] <= $b[$j]) && ($b[$j] <= $b[22]))) { 	
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 11th House';
+					$return_house = "11";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 11th House';
+					$return_house = "11";
+				}
+			} elseif (($b[21] > $b[22]) && (($b[$j] >= $b[21]) && ($b[$j] <= 360))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 11th House';
+					$return_house = "11";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 11th House';
+					$return_house = "11";
+				}
+			} elseif (($b[21] > $b[22]) && (($b[$j] <= $b[22]) && ($b[$j] >= 0))) {
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 11th House';
+					$return_house = "11";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 11th House';
+					$return_house = "11";
+				}
 
-// North Node in the 12th house
-		} else {
-			if (ucwords($q[$j]) == "Nnode") {
-				$return = 'North Node in the 12th House';
-				$return_house = "12";
+	// North Node in the 12th house
 			} else {
-				$return = ucwords($q[$j]) . ' in the 12th House';
-				$return_house = "12";
+				if (ucwords($q[$j]) == "Nnode") {
+					$return = 'North Node in the 12th House';
+					$return_house = "12";
+				} else {
+					$return = ucwords($q[$j]) . ' in the 12th House';
+					$return_house = "12";
+				}
 			}
-		}
 
 	array_push($planet_sign_house,$return);
 	array_push($planet_house,$return_house);
@@ -670,21 +787,6 @@ echo '</pre><br />';
 				))
 		    ->execute();
 			if ($conjunct[1] != "") { // if the table entry is not NULL
-/*				$ab = explode("_", $conjunct[0]);  // $conjunct[0] ==> Venus Pluto
-				if (($ab[0] == "jupiter") || ($ab[1] == "jupiter")) {
-					$psh0 = explode(" ", $planet_sign_house[10]);
-					$psh1 = explode(" ", $planet_sign_house[11]);
-					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
-					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4] . ", ";
-				}
-				if (($ab[0] == "uranus") || ($ab[1] == "uranus")) {
-					$psh0 = explode(" ", $planet_sign_house[14]);
-					$psh1 = explode(" ", $planet_sign_house[15]);					
-					planet_sign_house_conjunct($psh0, $psh1, $psh_array);
-					echo $psh0[0] . "  " .  $psh1[1] . " " . $psh1[2] . " " . $psh1[3] . " " . $psh1[4];
-				}
-				echo "planet A: " . $ab[0] . ", planet B:" . $ab[1] . "<br />";
-*/				
 				if ($conjunct[1] <= 2.0) { // if the orb is <= 2.0 then color the text BLUE
 					echo "<span style=\"color:blue\"; >";
 					$aspect = $conjunct[0] . " &#177; " . $conjunct[1] ;
@@ -802,7 +904,7 @@ echo '</pre><br />';
 					'entity_type' => 'node',
 					'bundle' => 'natal',
 					'entity_id' => $nid,
-					'language' => 'und',
+
 					'delta' => 0,
 					$db_table_value => $opposite[1],
 					$db_format => 'plain_text',
