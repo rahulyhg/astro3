@@ -1,17 +1,20 @@
 <?php
 global $user;
-$daily_id = 2229;
+$daily_id = 2151;
 
 $title = drupal_get_title();  // e.g., "mercury_saturn_square"
 $components = explode('_',$title);
 $planet_0 = ucfirst($components[0]);
 $planet_1 = ucfirst($components[1]);
 $angle = $components[2];
+$result3 = "";
+$result4 = "";
 
 $field = "natal_" . $title . "_value";  // e.g.,: "natal_mercury_saturn_square_value"
 $table = "field_data_natal_" . $title ;  // e.g., "field_data_natal_mercury_saturn_square"
 
-echo "<b>Other people with this aspect include:</b><br /><br />";
+echo "<b>Other people with this aspect include:</b><br />";
+echo "Note: the additional house information.<br /><br />";
 
 $result = db_query("SELECT entity_id, $field FROM {$table}")->fetchAll(PDO::FETCH_ASSOC);
 
@@ -20,27 +23,25 @@ foreach ($result as $record) {
 	if($record[$field] != NULL) {
 		$result2 = db_query("SELECT nid, title, type FROM {node}")->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($result2 as $record2) {
-			if(($record2['type'] == 'natal') && ($record2['nid'] == $record['entity_id']) && ($record['entity_id'] != $daily_id)) {  // omit daily_daily = 2229
+			if(($record2['type'] == 'natal') && ($record2['nid'] == $record['entity_id']) && ($record['entity_id'] != $daily_id)) {  // omit daily_daily = 2151
 				$full = explode('_',$record2['title']);
 				$first = ucfirst($full[1]);
 				$last = ucfirst($full[0]);
 				$nid = $record2['nid'];
-				$result3 = "";  // define $result3 in the event that $t[3] == "asc"
-				$result4 = "";  // define $result4 in the event that $t[3] == "asc"
 				
 				$t3 = explode("_", $table);
 				$t4 = explode("_", $table);
 				$table3 = "field_data_natal_" . $t3[3]. "_house";  // e.g., "field_data_natal_mercury_house"
 				$table4 = "field_data_natal_" . $t4[4]. "_house";  // e.g., "field_data_natal_mercury_house"
-				$column3 = "natal_" . $t3[3]. "_house_value";  // e.g., "natal_mercury_house_value" 
-				$column4 = "natal_" . $t4[4]. "_house_value";  // e.g., "natal_mercury_house_value" 
-				if ($t3[3] != "asc") {
+				if ($t3[3] != "asc") { 
+					$column3 = "natal_" . $t3[3]. "_house_value";  // e.g., "natal_mercury_house_value" 
 					$result3 = db_query("SELECT $column3 FROM {$table3} WHERE entity_id = $nid")->fetchField(); // e.g., 3rd house
 				} else {
 					$result3 = "01";
 				}
 				if ($t4[4] != "asc") {
-					$result4 = db_query("SELECT $column4 FROM {$table4} WHERE entity_id = $nid")->fetchField(); // e.g., 3rd house
+					$column4 = "natal_" . $t4[4]. "_house_value";  // e.g., "natal_mercury_house_value" 
+					$result4 = db_query("SELECT $column4 FROM {$table4} WHERE entity_id = $nid")->fetchField(); // e.g., 	5th house
 				} else {
 					$result4 = "01";
 				}
@@ -48,7 +49,7 @@ foreach ($result as $record) {
 				// code for permission to view "Other people with this aspect include:"
 				// Get a single value out of the database (Public or Private).
 				$pub_pri = db_query("SELECT natal_pub_pri_value FROM {field_data_natal_pub_pri} WHERE entity_id = $nid")->fetchField();
-
+				
 				if ($user->uid == 0) { // When uid=0, then the user is "anonymous" ==> only view public records
 					if ($pub_pri == "Public") {
 //						echo $nid . "<br />";

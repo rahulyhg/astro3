@@ -1,6 +1,6 @@
 <?php
 require 'sites/all/modules/custom/natal/functions.php';
-$daily_id = 2229;
+$daily_id = 2151;
 
 $full_name = array();
 $query = "SELECT nid, title FROM node WHERE type = 'natal'";
@@ -34,7 +34,7 @@ echo "<option label=\"-select an orb -\" value=\"\"></option>";
 echo "<option value=\"0.33\" >0 degrees 20 minutes</option>";
 echo "<option value=\"0.5\" >0 degrees 30 minutes</option>";
 echo "<option value=\"1.0\" >1 degree 0 minutes</option>";
-echo "<option value=\"2\" selected=\"selected\" >2 degrees 0 minutes</option>";
+echo "<option value=\"2.0\" selected=\"selected\" >2 degrees 0 minutes</option>";
 echo "</select>";
 
 echo "<input id=\"saveForm\" class=\"button_text\" type=\"submit\" name=\"submit\" value=\"Submit\" />";
@@ -341,17 +341,29 @@ $b = array($sunB,$moonB,$mercuryB,$venusB,$marsB,$jupiterB,$saturnB,$uranusB,$ne
 	for ($i=0; $i<count($a); $i++) {
 		for ($j=0; $j<count($b); $j++) {
 			$aspect = ab($a[$i], $b[$j]);
-			if ($aspect != NULL) {
+			$numeric_angle = round(abs(($a[$i] - $b[$j])),1); // calculates the daily_daliy aspects (leaving out 0 degrees)
+			if (($aspect != NULL) && ($nid != $daily_id)) {
 				$angle = ' (angle: ' . round(abs(($a[$i] - $b[$j])),1) . '&#176;)';
-				$glyph1 = '<img src="sites/default/files/glyphs/' . $p[$i] . '.jpg" style="width:41px;height:54px" >';
-				$glyph2 = '<img src="sites/default/files/glyphs/' . $aspect . '.jpg" style="width:41px;height:54px" >';
-				$glyph3 = '<img src="sites/default/files/glyphs/' . $p[$j] . '.jpg" style="width:41px;height:54px" ><br />';
-				echo $glyph1 . " " . $glyph2 . " " . $glyph3;
-				$title = 'Transiting ' . ucwords($p[$i]) . ' ' . $aspect . ' natal ' . ucwords($p[$j]) ;
-				echo '<span style="color:rgb(57,51,127);font-size:20px;font-weight:bold">' . $title . '</span>' . $angle . '<br />';
-				$condition1 = $p[$i] . '_' . $p[$j] . '_' . $aspect;
-				transit($condition1);
+					$glyph1 = '<img src="sites/default/files/glyphs/' . $p[$i] . '.jpg" style="width:41px;height:54px" >';
+					$glyph2 = '<img src="sites/default/files/glyphs/' . $aspect . '.jpg" style="width:41px;height:54px" >';
+					$glyph3 = '<img src="sites/default/files/glyphs/' . $p[$j] . '.jpg" style="width:41px;height:54px" ><br />';
+					echo $glyph1 . " " . $glyph2 . " " . $glyph3;
+					$title = 'Transiting ' . ucwords($p[$i]) . ' ' . $aspect . ' natal ' . ucwords($p[$j]) ;
+					echo '<span style="color:rgb(57,51,127);font-size:20px;font-weight:bold">' . $title . '</span>' . $angle . '<br />';
+					$condition1 = $p[$i] . '_' . $p[$j] . '_' . $aspect;
+					transit($condition1);
 			}
+			if (($aspect != NULL) && ($nid == $daily_id) && ($numeric_angle != 0)) { // lists transits for today (daily_daily)
+				$angle = ' (angle: ' . round(abs(($a[$i] - $b[$j])),1) . '&#176;)';
+					$glyph1 = '<img src="sites/default/files/glyphs/' . $p[$i] . '.jpg" style="width:41px;height:54px" >';
+					$glyph2 = '<img src="sites/default/files/glyphs/' . $aspect . '.jpg" style="width:41px;height:54px" >';
+					$glyph3 = '<img src="sites/default/files/glyphs/' . $p[$j] . '.jpg" style="width:41px;height:54px" ><br />';
+					echo $glyph1 . " " . $glyph2 . " " . $glyph3;
+					$title = 'Transiting ' . ucwords($p[$i]) . ' ' . $aspect . ' natal ' . ucwords($p[$j]) ;
+					echo '<span style="color:rgb(57,51,127);font-size:20px;font-weight:bold">' . $title . '</span>' . $angle . '<br />';
+					$condition1 = $p[$i] . '_' . $p[$j] . '_' . $aspect;
+					transit($condition1);
+			} 
 		}
 	}
 }

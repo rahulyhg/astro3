@@ -79,6 +79,10 @@ return $items;
 /**
  * My Callback function. =============================================================
  */
+
+//////////////////////////////////////////////////////////////////////////////////////
+// astro3/current   (home page)
+//////////////////////////////////////////////////////////////////////////////////////
 function todays_aspects() {
 	$today = date("F j, Y, g:i:s a");
 	$x = "These are the positions of the planets for: " . $today;

@@ -64,7 +64,7 @@ if(isset($_POST['submit']) && ($_POST['full_name'] != NULL)) {
 //	echo 'Node ID: ' . $nid . '<hr />';
 
 // retrieve the values for B = 'selected individual' from the database
-$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","asc","nnode","cusp02","cusp03","mc","cusp05","cusp06","asc","cusp02","cusp03","mc","cusp05","cusp06");
+$p = array("sun","moon","mercury","venus","mars","jupiter","saturn","uranus","neptune","pluto","nnode","asc","cusp02","cusp03","mc","cusp05","cusp06","asc","cusp02","cusp03","mc","cusp05","cusp06");
 for ($j=0; $j<count($p); $j++) {
 
 	$sdm = array('sign','degree','minute');
@@ -341,6 +341,32 @@ $planet_house = array();
 
 
 
+/* North Node in the 1st house
+		if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+				$return_house = "01";
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+				$return_house = "01";
+			}
+		} elseif (($b[11] > $b[12]) && (($b[$j] => $b[11])) && ($b[$j] <= 360))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+				$return_house = "01";
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+				$return_house = "01";
+			}
+		} elseif (($b[11] > $b[12]) && (($b[$j] <= $b[12])) && ($b[$j] => 0))) {
+			if (ucwords($q[$j]) == "Nnode") {
+				$return = 'North Node in the 1st House';
+				$return_house = "01";
+			} else {
+				$return = ucwords($q[$j]) . ' in the 1st House';
+				$return_house = "01";
+			}
+*/
 	
 	 // North Node in the 1st house
 			if (($b[11] < $b[12]) && (($b[11] <= $b[$j]) && ($b[$j] <= $b[12]))) { 
@@ -681,14 +707,14 @@ $planet_house = array();
 	}
 }
 
-echo '<br /><pre>';
+/*echo '<br /><pre>';
 print_r($b);
 //print_r($planet_sign_house); // Prints the array, e.g., [11] Saturn in Aquarius; [12] Saturn in the 3rd house
 //$psh_array = $planet_sign_house;
 //print_r($planet_house);  // Prints the array, e.g., [01] in 03; [02] in 12, etc.
 echo '</pre><br />';
 //echo "house_sun: " . $house_sun;
-
+*/
 // insert planet X in house Y here
 	for ($i=0; $i<11; $i++) {
 	$db_table_name = "field_data_natal_" . $q[$i] . "_house";
@@ -718,7 +744,7 @@ echo '</pre><br />';
 
 // Add information about CSSTO aspects
 	$angle = array($sunB,$moonB,$mercuryB,$venusB,$marsB,$jupiterB,$saturnB,$uranusB,$neptuneB,$plutoB,$nnodeB,$cusp01B);
-	$planet = array("Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","ASC","NNode","MC");
+	$planet = array("Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","Nnode","ASC","MC");
 	$conjuncts = array();
 	$sextiles = array();
 	$squares = array();
@@ -743,6 +769,8 @@ echo '</pre><br />';
 				array_push($opposites,$oppo);
 		}
 }
+echo "<b>Click on the link to see other people with this aspect in their natal chart.</b><br /><br />";
+
 		echo "<b>CONJUNCT ASPECTS</b><br />";
 		foreach ($conjuncts as $conjunct) {
 			$db_table_name = "field_data_natal_" . $conjunct[0];

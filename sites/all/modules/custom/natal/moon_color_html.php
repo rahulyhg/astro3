@@ -1,6 +1,6 @@
 <?php
 require_once 'simple_html_dom.php';
-$daily_id = 2229;
+$daily_id = 2151;
 
 $output = "<style type=\"text/css\">";
 $output .= ".word1 { font-size: 14px; color: #1A446C; vertical-align:top; }";
@@ -58,15 +58,15 @@ $output .= $p[$i] . " " . $P[$i] . "<br />" . $sign . " " . $degree . "&#176;" .
 echo "<pre>";
 $query = db_select('field_data_natal_moon_sign', 'natal_moon_sign_value')
     ->fields('natal_moon_sign_value')
-	->condition('entity_id', $daily_id,'=')
+	->condition('entity_id', 2151,'=')
     ->execute()
     ->fetchAssoc();
 $ss = $query['natal_moon_sign_value'];
 echo "The natal Moon sign is: " . $ss;
 echo "</pre>";
 
-// set variable for daily_daily
-$nid = $daily_id;
+// set variable for daily_daily (nid = 2151)
+$nid = 2151;
 
 $test = $i;
 switch ($test) {

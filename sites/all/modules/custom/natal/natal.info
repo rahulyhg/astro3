@@ -1,9 +1,17 @@
 name = Natal
 description = A content type to store natal info (all fields)
 core = 7.x
-version = 7.x-1.13-dev
+version = 7.x-1.15-dev
 configure = admin/config/natal/manage
 package = Astrology
+
+; 7.x-1.15-dev 
+; modified: daily_input_form.php (daily_daily)
+; if (($aspect != NULL) && ($nid == $daily_id) && ($numeric_angle != 0)) { // lists transits for today (daily_daily)
+
+; 7.x-1.14-dev 
+; modified: daily_input_form.php (daily_daily)
+; astro3/transits: removes 0 degree results for daily_daily transits
 
 ; 7.x-1.13-dev    (takes about 125 seconds to load)
 ; Fixed "$fields['natal_asc_nnode_conjunct']" CSSTO in natal.install
@@ -51,6 +59,6 @@ package = Astrology
 ; 2) example_extract_html.php line 3
 ; 3) views > astro_list > filter_criteria
 ; 4) search API > listing display > fields
-; 5) moon_color_html.php line 3
-; 6) 'Moon Color of the Day' block line 69
+; 5) moon_color_html.php line 60
+; 6) 'Moon Color of the Day' block
 ; 7) aspect_code.php line 21
