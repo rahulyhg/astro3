@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oDAAoD;;ACApD,UAAW;EACT,SAAS,EAAE,IAAI;;;ADsBjB,IAAK;EACJ,UAAU,EAAE,OAAO;;;AAMpB,iBAAkB;EACjB,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,KAAK;EACT,OAAO,EAAE,eAAe",
+"sources": ["../sass/astro4.styles.scss","../sass/base/_media.scss"],
+"names": [],
+"file": "astro4.no-query.css"
+}

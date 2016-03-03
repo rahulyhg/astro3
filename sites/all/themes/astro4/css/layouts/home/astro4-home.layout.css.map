@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAIA,OAAQ;EACP,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,KAAK",
+"sources": ["../../../sass/layouts/home/astro4-home.layout.scss"],
+"names": [],
+"file": "astro4-home.layout.css"
+}

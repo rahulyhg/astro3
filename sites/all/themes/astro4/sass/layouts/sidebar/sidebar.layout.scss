@@ -1,0 +1,60 @@
+// Import external libraries.
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "toolkit";  // chnaged from @import "toolkit";
+
+// Import variables, abstractions, base styles and components using globbing.
+//
+// Globbing will always import files alphabetically. Optimally, all your
+// components should be self-contained and explicit enough to not have any
+// contained styles leak into unrelated components: The import order should not
+// affect the result.
+@import "../../variables/**/*";  //commented out because of an error
+
+//
+// If there are variables, functions or mixins that depend on each other and
+// therefore need to be imported in a specific order you can import them
+// directly. Variables-, function- or mixin providing partials should never
+// output any styles themselves: Importing them multiple times to resolve
+// dependencies shouldn't be a problem.
+@import "variables/**/*";
+@import "abstractions/**/*";
+@import "base/**/*";
+@import "components/**/*";
+
+// PAGE CONTAINER
+//	ex: width: 960px; // sets page container size to fixed 960px
+//	ex: margin:0 auto; // centers the content
+
+.l-page {
+	margin:0 auto; // centered in page container
+	@include breakpoint($tab) {
+		width: $tab;
+	}
+	@include breakpoint($desk) {
+		width: $desk;
+	}
+} 
+
+.l-main {
+	@include clearfix; // moves "Powered by Drupal" to the bottom
+}
+
+@include breakpoint($tab) {
+	.l-region--sidebar-first {    // span 4 columns, start in the 1st column
+	     @include grid-span(4,1); // "grid-span()" a mixin that Singularity provides
+	}
+	.l-content {
+	     @include grid-span(8,5); // span 8 columns, start in the 5th column
+	}
+}
+
+@include breakpoint($desk) {
+	.l-region--sidebar-first {    // span 3 columns, start in the 1st column
+	     @include grid-span(3,1); // "grid-span()" a mixin that Singularity provides
+	}
+	.l-content {
+	     @include grid-span(9,4);   // span 9 columns, start in the 4th column
+	}
+}

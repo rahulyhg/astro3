@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAIA,wBAAwB;EACvB,UAAU,EAAC,IAAI",
+"sources": ["../../../sass/layouts/sidebar/astro4-sidebar.layout.scss"],
+"names": [],
+"file": "astro4-sidebar.layout.css"
+}

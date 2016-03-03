@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oDAAoD;ACApD,4CAA4C;ACA5C,kDAAkD;;ACUlD,IAAK;EACJ,UAAU,EAAE,OAAgB;;;AAE7B,eAAgB;EACf,UAAU,EAAE,OAAgB;;;AAE7B,SAAU;EACR,UAAU,EAAE,GAAG;EACf,WAAW,EAAE,GAAG;EAChB,aAAa,EAAE,GAAG",
+"sources": ["../../../sass/layouts/tarot/abstractions/**/*","../../../sass/layouts/tarot/base/**/*","../../../sass/layouts/tarot/components/**/*","../../../sass/layouts/tarot/tarot-sidebar.layout.scss"],
+"names": [],
+"file": "tarot-sidebar.layout.css"
+}

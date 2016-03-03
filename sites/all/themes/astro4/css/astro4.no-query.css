@@ -1,0 +1,16 @@
+/* No files to import found in abstractions/**\/* */
+/* line 1, ../sass/base/_media.scss */
+img, media {
+  max-width: 100%; }
+
+/* line 24, ../sass/astro4.styles.scss */
+body {
+  background: #84a4e5; }
+
+/* line 31, ../sass/astro4.styles.scss */
+#menu-buttons img {
+  display: inline-block;
+  float: right;
+  padding: 5px 5px 5px 5px; }
+
+/*# sourceMappingURL=astro4.no-query.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAIA,wBAAwB;EACvB,UAAU,EAAC,IAAI",
+"sources": ["../../../sass/layouts/sidebar/tarot-sidebar.layout.scss"],
+"names": [],
+"file": "tarot-sidebar.layout.css"
+}
